@@ -7,11 +7,15 @@ export default function Hero() {
 
       {/* 💜 Animated Glow (FIXED POSITION) */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.5 }}
-        className="absolute top-[80px] left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-purple-500/20 blur-[140px] rounded-full pointer-events-none"
-      />
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 1.5 }}
+  className="absolute top-[80px] left-1/2 -translate-x-1/2 w-[500px] sm:w-[650px] h-[500px] sm:h-[650px] rounded-full pointer-events-none z-0"
+  style={{
+    background: "radial-gradient(circle, rgba(168,85,247,0.25) 0%, rgba(59,130,246,0.15) 40%, transparent 70%)",
+    filter: "blur(80px)",
+  }}
+/>
 
       <div className="relative mx-auto max-w-5xl text-center">
 
