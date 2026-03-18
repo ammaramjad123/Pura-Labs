@@ -116,17 +116,27 @@ export default function Navbar() {
               }`}
             >
               {/* LOGO */}
-              <a
-                href="#home"
-                className="justify-self-start flex items-center gap-3 text-2xl font-bold tracking-tight text-blue-600 sm:text-2xl"
-              >
-                <img
-                  src="/logo.png"
-                  alt="Pura Labs logo"
-                  className="h-12 w-12 object-contain sm:h-14 sm:w-14 lg:h-16 lg:w-16"
-                />
-                <span>Pura Labs</span>
-              </a>
+           <a
+  href="#home"
+  className="justify-self-start flex items-center gap-3 font-bold tracking-tight text-blue-600"
+>
+  <img
+    src="/logo.png"
+    alt="Pura Labs logo"
+    className={`object-contain transition-all duration-300 ${
+      scrolled
+        ? "h-14 w-14 sm:h-14 sm:w-14 lg:h-14 lg:w-14"
+        : "h-17 w-17 sm:h-18 sm:w-18 lg:h-20 lg:w-20"
+    }`}
+  />
+  <span
+    className={`transition-all duration-300 font-[Montserrat] ${
+      scrolled ? "text-xl sm:text-xl" : "text-2xl sm:text-2xl"
+    }`}
+  >
+    Pura Labs
+  </span>
+</a>
 
               {/* NAV */}
               <nav className="hidden items-center justify-center gap-10 lg:flex">
@@ -300,43 +310,45 @@ export default function Navbar() {
 
                 {/* rest unchanged */}
 
-                <div
-                  className={`w-full overflow-hidden transition-all duration-500 ${
-                    mobileIndustryOpen
-                      ? "mt-2 max-h-[2000px] opacity-100"
-                      : "max-h-0 opacity-0"
-                  }`}
-                >
-                  <div className="space-y-5 px-1 pt-2 pb-6 text-left">
-                    {industries.map((item, i) => (
-                      <div
-                        key={i}
-                        className="rounded-[20px] border border-neutral-200 bg-[#f7f7f7] p-5"
-                      >
-                        <div className="flex items-start gap-4">
-                          <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-blue-50 text-blue-600">
-                            {item.icon}
-                          </div>
+               <div
+  className={`w-full transition-all duration-300 ease-out ${
+    mobileIndustryOpen
+      ? "opacity-100 translate-y-0"
+      : "opacity-0 -translate-y-1 pointer-events-none"
+  }`}
+>
+  {mobileIndustryOpen && (
+    <div className="space-y-5 px-1 pt-2 pb-6 text-left">
+      {industries.map((item, i) => (
+        <div
+          key={i}
+          className="rounded-[20px] border border-neutral-200 bg-[#f7f7f7] p-5"
+        >
+          <div className="flex items-start gap-4">
+            <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-blue-50 text-blue-600">
+              {item.icon}
+            </div>
 
-                          <div className="min-w-0">
-                            <h4 className="text-[20px] font-semibold text-neutral-900">
-                              {item.title}
-                            </h4>
+            <div className="min-w-0">
+              <h4 className="text-[20px] font-semibold text-neutral-900">
+                {item.title}
+              </h4>
 
-                            <ul className="mt-3 space-y-1 text-[16px] text-neutral-600">
-                              {item.bullets.map((bullet) => (
-                                <li key={bullet} className="flex items-start gap-2">
-                                  <span className="mt-[10px] h-2 w-2 shrink-0 rounded-full bg-blue-600" />
-                                  <span>{bullet}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+              <ul className="mt-3 space-y-1 text-[16px] text-neutral-600">
+                {item.bullets.map((bullet) => (
+                  <li key={bullet} className="flex items-start gap-2">
+                    <span className="mt-[10px] h-2 w-2 shrink-0 rounded-full bg-blue-600" />
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  )}
+</div>
 
                 <a
                   href="#pricing"
