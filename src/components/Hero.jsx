@@ -102,7 +102,7 @@ export default function Hero() {
         opacity: [0.22, 0.34, 0.22],
       }}
       transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-      className="absolute h-[260px] w-[260px] sm:h-[320px] sm:w-[320px] rounded-full bg-[radial-gradient(circle,rgba(168,85,247,0.22)_0%,rgba(59,130,246,0.14)_35%,rgba(255,255,255,0)_72%)] blur-3xl"
+      className="absolute h-[320px] w-[320px] sm:h-[420px] sm:w-[420px] rounded-full bg-[radial-gradient(circle,rgba(168,85,247,0.22)_0%,rgba(59,130,246,0.14)_35%,rgba(255,255,255,0)_72%)] blur-3xl"
     />
 
     {/* pulse ring 1 */}
@@ -112,7 +112,7 @@ export default function Hero() {
         opacity: [0.18, 0.05, 0.18],
       }}
       transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
-      className="absolute h-[180px] w-[180px] sm:h-[220px] sm:w-[220px] rounded-full border border-white/35"
+      className="absolute h-[220px] w-[220px] sm:h-[280px] sm:w-[280px] rounded-full border border-white/35"
     />
 
     {/* pulse ring 2 */}
@@ -122,7 +122,7 @@ export default function Hero() {
         opacity: [0.1, 0.02, 0.1],
       }}
       transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
-      className="absolute h-[210px] w-[210px] sm:h-[260px] sm:w-[260px] rounded-full border border-purple-200/40"
+      className="absolute h-[250px] w-[250px] sm:h-[320px] sm:w-[320px] rounded-full border border-purple-200/40"
     />
 
     {/* main glass core */}
@@ -135,7 +135,7 @@ export default function Hero() {
         ],
       }}
       transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-      className="relative flex h-[150px] w-[150px] sm:h-[180px] sm:w-[180px] items-center justify-center rounded-full border border-white/55 bg-white/18 backdrop-blur-2xl"
+      className="relative flex h-[180px] w-[180px] sm:h-[240px] sm:w-[240px] items-center justify-center rounded-full border border-white/55 bg-white/18 backdrop-blur-2xl"
     >
       {/* inner gradient aura */}
       <motion.div
@@ -157,7 +157,7 @@ export default function Hero() {
           scale: [1, 1.03, 1],
         }}
         transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut" }}
-        className="relative z-10 h-35 w-40 sm:h-39 sm:w-39 object-contain drop-shadow-[0_10px_30px_rgba(124,58,237,0.28)]"
+        className="relative z-10 h-45 w-50 sm:h-59 sm:w-59 object-contain drop-shadow-[0_10px_30px_rgba(124,58,237,0.28)]"
       />
 
       {/* glossy highlight */}

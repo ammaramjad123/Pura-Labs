@@ -89,25 +89,26 @@ export default function Industries() {
           </div>
 
           {/* THINKING INDICATOR */}
-          {phase === "thinking" && (
-            <div className="flex gap-1">
-              <span className="w-2 h-2 bg-purple-400 rounded-full animate-bounce" />
-              <span className="w-2 h-2 bg-purple-400 rounded-full animate-bounce [animation-delay:0.15s]" />
-              <span className="w-2 h-2 bg-purple-400 rounded-full animate-bounce [animation-delay:0.3s]" />
-            </div>
-          )}
+          <div className="h-[44px] flex items-center justify-center">
+  {phase === "thinking" && (
+    <div className="flex gap-1">
+      <span className="w-2 h-2 bg-purple-400 rounded-full animate-bounce" />
+      <span className="w-2 h-2 bg-purple-400 rounded-full animate-bounce [animation-delay:0.15s]" />
+      <span className="w-2 h-2 bg-purple-400 rounded-full animate-bounce [animation-delay:0.3s]" />
+    </div>
+  )}
 
-          {/* AI RESULT */}
-          {phase === "done" && (
-            <motion.div
-              key={calls[index].industry}
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              className="px-6 py-3 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold shadow-md text-sm sm:text-base"
-            >
-              {calls[index].industry}
-            </motion.div>
-          )}
+  {phase === "done" && (
+    <motion.div
+      key={calls[index].industry}
+      initial={{ scale: 0.8, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      className="px-6 py-3 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold shadow-md text-sm sm:text-base"
+    >
+      {calls[index].industry}
+    </motion.div>
+  )}
+</div>
 
           {/* SIGNAL LINE */}
           <motion.div
@@ -125,7 +126,7 @@ export default function Industries() {
 
           {/* TEXT */}
           <p className="mt-4 text-sm sm:text-lg text-neutral-600 max-w-2xl leading-relaxed">
-            Vaira AI doesn’t just answer calls — it understands intent,
+            Pura AI doesn’t just answer calls — it understands intent,
             responds intelligently, and adapts instantly to every situation.
           </p>
 

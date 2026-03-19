@@ -34,7 +34,7 @@ export default function HowItWorks() {
           whileInView={{ opacity: 1, y: 0 }}
           className="font-heading text-2xl sm:text-4xl lg:text-5xl font-bold text-center text-neutral-900"
         >
-          How Vaira AI Works
+          How Pura AI Works
         </motion.h2>
 
         {/* ⚡ FLOW SYSTEM */}
@@ -129,7 +129,7 @@ export default function HowItWorks() {
 
           <p className="mt-6 max-w-3xl mx-auto text-sm sm:text-lg text-neutral-600 leading-relaxed">
             While your team focuses on closing deals and serving customers,
-            Vaira AI handles every conversation — instantly, professionally, and at scale.
+            Pura AI handles every conversation — instantly, professionally, and at scale.
           </p>
         </motion.div>
 

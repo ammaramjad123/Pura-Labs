@@ -113,7 +113,7 @@ export default function Problems() {
           className="mt-24 text-center"
         >
           <div className="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold shadow-lg">
-            Vaira AI Responds Instantly
+            Pura AI Responds Instantly
           </div>
 
           <p className="mt-6 max-w-3xl mx-auto text-sm sm:text-lg text-neutral-600 leading-relaxed">

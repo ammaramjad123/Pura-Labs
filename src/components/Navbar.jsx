@@ -83,13 +83,31 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileIndustryOpen, setMobileIndustryOpen] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true);
+const [lastScrollY, setLastScrollY] = useState(0);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    onScroll();
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+useEffect(() => {
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
+
+    // existing blur/shrink behavior
+    setScrolled(currentScrollY > 40);
+
+    // detect scroll direction
+    if (currentScrollY > lastScrollY && currentScrollY > 80) {
+      // scrolling DOWN → hide navbar
+      setShowNavbar(false);
+    } else {
+      // scrolling UP → show navbar
+      setShowNavbar(true);
+    }
+
+    setLastScrollY(currentScrollY);
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, [lastScrollY]);
 
   useEffect(() => {
     if (mobileOpen) {
@@ -105,16 +123,20 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-50">
+     <header
+  className={`fixed inset-x-0 top-0 z-50 transition-transform duration-500 ${
+    showNavbar ? "translate-y-0" : "-translate-y-full"
+  }`}
+>
         <div className="mx-auto w-full max-w-[1600px] px-3 sm:px-4 lg:px-6">
           <div className="pt-3 sm:pt-4 transition-all duration-500">
             <div
-              className={`relative mx-auto grid grid-cols-[auto_1fr_auto] items-center border border-white/40 px-4 py-4 sm:px-6 lg:px-8 transition-all duration-500 ${
-                scrolled
-                  ? "max-w-[1380px] rounded-full bg-white/70 shadow-[0_12px_40px_rgba(94,76,255,0.12)] backdrop-blur-xl"
-                  : "max-w-full rounded-[32px] bg-white/10 backdrop-blur-md"
-              }`}
-            >
+ className={`relative mx-auto grid grid-cols-[auto_1fr_auto] items-center border border-white/40 transition-all duration-500 ${
+  scrolled
+    ? "max-w-[1100px] sm:max-w-[1200px] lg:max-w-[1250px] rounded-full bg-white/70 shadow-[0_12px_40px_rgba(94,76,255,0.12)] backdrop-blur-xl px-2 py-1 sm:px-5 sm:py-3 lg:px-8 lg:py-4"
+    : "max-w-full rounded-[32px] bg-white/10 backdrop-blur-md px-4 py-4 sm:px-6 sm:py-4 lg:px-8 lg:py-4"
+}`}
+>
               {/* LOGO */}
            <a
   href="#home"
