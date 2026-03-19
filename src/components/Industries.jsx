@@ -82,7 +82,7 @@ export default function Industries() {
           </div>
 
           {/* TYPING MESSAGE */}
-          <div className="max-w-[90%] sm:max-w-lg px-6 py-4 rounded-2xl bg-white/80 backdrop-blur-xl border border-neutral-200 shadow-lg text-sm sm:text-base text-neutral-700 text-left">
+          <div className="max-w-[90%] sm:max-w-lg px-6 py-4 rounded-2xl bg-white/80 backdrop-blur-xl border border-neutral-200 shadow-lg text-sm sm:text-base text-neutral-700 text-left min-h-[90px] sm:min-h-[70px] flex items-center">
 
             “{displayedText}
             <span className="animate-pulse">|</span>”
