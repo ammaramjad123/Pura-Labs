@@ -1,3 +1,4 @@
+import Contact from "../components/Contact";
 import FAQ from "../components/FAQ";
 import Hero from "../components/Hero";
 import HowItWorks from "../components/HowItWorks";
@@ -21,6 +22,7 @@ export default function Home() {
       <HowItWorks/>
       <Pricing/>
       <FAQ/>
+      <Contact/>
     </>
   );
 }
