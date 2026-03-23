@@ -13,18 +13,34 @@ import WhyChoose from "../components/WhyChoose";
 export default function Home() {
   return (
     <>
-      <Navbar />
       <div className="mt-20"></div>
-      <Hero/>
-      <Problems/>
-      <WhyChoose/>
-      <Industries/>
-      <IndustriesGrid/>
-      <HowItWorks/>
-      <Pricing/>
-      <FAQ/>
-      <Contact/>
-      <Footer/>
+
+ <div id="hero">
+      <Hero />
+</div>
+
+      <Problems />
+
+      {/* ABOUT */}
+      <div id="about">
+        <WhyChoose />
+      </div>
+
+      <Industries />
+      <IndustriesGrid />
+      <HowItWorks />
+
+      {/* PRICING */}
+      <div id="pricing">
+        <Pricing />
+      </div>
+
+      <FAQ />
+
+      {/* CONTACT */}
+      <div id="contact">
+        <Contact />
+      </div>
     </>
   );
 }

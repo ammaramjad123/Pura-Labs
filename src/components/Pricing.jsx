@@ -190,7 +190,7 @@ const Pricing = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-purple-50">
+    <div className=" min-h-screen bg-gradient-to-br from-slate-50 via-white to-purple-50">
       <div className="max-w-[1600px] mx-auto px-6 py-20">
         {/* Heading */}
         <div className="text-center mb-16">
