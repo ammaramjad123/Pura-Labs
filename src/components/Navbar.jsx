@@ -99,8 +99,19 @@ export default function Navbar() {
   const location = useLocation();
   const navigate = useNavigate(); // ✅ Moved inside component
 
-  // 🎯 PAGE THEME DETECTION
-  const isDarkPage = location.pathname !== "/";
+ // Define which pages should be dark (add or remove paths as needed)
+const darkPages = [
+  "/industries/law-firms",
+  "/industries/veterinary-clinics",
+  "/industries/dental-practices",
+  "/industries/finance",
+  "/industries/real-estate",
+  "/industries/insurance",
+  "/industries/recruitment",
+];
+
+// Check if current page should be dark
+const isDarkPage = darkPages.includes(location.pathname);
 
   // 🎨 DYNAMIC STYLES - NOW SCROLL-AWARE
   const navText = scrolled 

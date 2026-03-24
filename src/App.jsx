@@ -4,6 +4,8 @@ import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop"; // Import ScrollToTop
 import Home from "./pages/Home";
 import LawFirms from "./pages/Industry/LawFirms";
+import Tradespeople from "./pages/Industry/Tradespeople";
+import GPPractices from "./pages/Industry/GPPractices";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/industries/law-firms" element={<LawFirms />} />
+         <Route path="/industries/tradespeople" element={<Tradespeople />} />
+         <Route path="/industries/gp-practices" element={<GPPractices />} />
       </Routes>
 
       {/* ✅ MOVE HERE */}
