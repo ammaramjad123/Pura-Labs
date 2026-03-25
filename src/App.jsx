@@ -6,6 +6,8 @@ import Home from "./pages/Home";
 import LawFirms from "./pages/Industry/LawFirms";
 import Tradespeople from "./pages/Industry/Tradespeople";
 import GPPractices from "./pages/Industry/GPPractices";
+import VeterinaryClinics from "./pages/Industry/VeterinaryClinics";
+import DentalPractices from "./pages/Industry/DentalPractices";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
         <Route path="/industries/law-firms" element={<LawFirms />} />
          <Route path="/industries/tradespeople" element={<Tradespeople />} />
          <Route path="/industries/gp-practices" element={<GPPractices />} />
+         <Route path="/industries/veterinary-clinics" element={<VeterinaryClinics />} />
+         <Route path="/industries/dental-practices" element={<DentalPractices />} />
       </Routes>
 
       {/* ✅ MOVE HERE */}

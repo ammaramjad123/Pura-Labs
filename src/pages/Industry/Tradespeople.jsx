@@ -137,7 +137,7 @@ const Tradespeople = () => {
       >
         {[
           { value: "5,000+", label: "Active Tradespeople", icon: Users },
-          { value: "98%", label: "Call Answer Rate", icon: Phone },
+          { value: "100%", label: "Call Answer Rate", icon: Phone },
           { value: "40%", label: "More Bookings", icon: TrendingUp },
           { value: "24/7", label: "Always Available", icon: Clock }
         ].map((stat, idx) => (
@@ -481,7 +481,7 @@ const Tradespeople = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
               { value: "5,000+", label: "Active Tradespeople" },
-              { value: "98%", label: "Call Answer Rate" },
+              { value: "100%", label: "Call Answer Rate" },
               { value: "40%", label: "More Bookings" },
               { value: "24/7", label: "Support" }
             ].map((stat, idx) => (

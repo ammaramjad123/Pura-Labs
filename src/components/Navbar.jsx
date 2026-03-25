@@ -103,7 +103,6 @@ export default function Navbar() {
 const darkPages = [
   "/industries/law-firms",
   "/industries/veterinary-clinics",
-  "/industries/dental-practices",
   "/industries/finance",
   "/industries/real-estate",
   "/industries/insurance",

@@ -134,7 +134,7 @@ const LawFirms = () => {
         transition={{ delay: 0.9 }}
       >
         {[
-          { value: "98%", label: "Call Answer Rate", icon: Phone },
+          { value: "100%", label: "Call Answer Rate", icon: Phone },
           { value: "45%", label: "Time Savings", icon: Clock },
           { value: "30%", label: "More Bookings", icon: Calendar },
           { value: "24/7", label: "Always Available", icon: Shield }
@@ -380,13 +380,13 @@ const LawFirms = () => {
             <div>
               <div className="flex justify-between text-sm mb-1">
                 <span>Call Answer Rate</span>
-                <span className="font-semibold text-purple-600">98%</span>
+                <span className="font-semibold text-purple-600">100%</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2">
                 <motion.div 
                   className="bg-purple-600 h-2 rounded-full"
                   initial={{ width: 0 }}
-                  whileInView={{ width: "98%" }}
+                  whileInView={{ width: "100%" }}
                   transition={{ duration: 1 }}
                 />
               </div>
