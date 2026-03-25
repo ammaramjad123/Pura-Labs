@@ -409,10 +409,10 @@ export default function HowItWorks() {
                                 initial={{ opacity: 0, x: -12 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: i * 0.08 }}
-                                className="flex items-start gap-3 rounded-2xl bg-neutral-50 px-4 py-3"
+                                className="flex items-center gap-3 rounded-2xl bg-neutral-50 px-4 py-3"
                               >
                                 <span
-                                  className={`mt-1 h-2.5 w-2.5 min-w-[10px] min-h-[10px] flex-shrink-0 rounded-full ${
+                                  className={`h-2.5 w-2.5 min-w-[10px] min-h-[10px] flex-shrink-0 rounded-full ${
                                     [
                                       "bg-purple-500",
                                       "bg-blue-500",

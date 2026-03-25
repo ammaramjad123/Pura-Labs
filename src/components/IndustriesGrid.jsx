@@ -54,7 +54,7 @@ const industries = [
     name: "Real Estate",
     path: "/industry/real-estate",
     blurb: "Viewings, valuations, buyer enquiries",
-    x: 10,
+    x: 14,
     y: 52,
     size: "sm",
   },

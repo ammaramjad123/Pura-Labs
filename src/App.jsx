@@ -8,6 +8,7 @@ import Tradespeople from "./pages/Industry/Tradespeople";
 import GPPractices from "./pages/Industry/GPPractices";
 import VeterinaryClinics from "./pages/Industry/VeterinaryClinics";
 import DentalPractices from "./pages/Industry/DentalPractices";
+import Finance from "./pages/Industry/Finance";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
          <Route path="/industries/gp-practices" element={<GPPractices />} />
          <Route path="/industries/veterinary-clinics" element={<VeterinaryClinics />} />
          <Route path="/industries/dental-practices" element={<DentalPractices />} />
+         <Route path="/industries/finance" element={<Finance />} />
       </Routes>
 
       {/* ✅ MOVE HERE */}
