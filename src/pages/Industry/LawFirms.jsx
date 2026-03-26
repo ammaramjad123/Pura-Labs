@@ -61,19 +61,17 @@ const LawFirms = () => {
   return (
     <div className="bg-white overflow-hidden">
     
-
-      {/* Hero Section with Parallax Effect */}
 {/* Hero Section with Parallax Effect */}
-<section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+<section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-18 sm:pt-12 bg-white">
   <motion.div 
     className="absolute inset-0 z-0"
     initial={{ scale: 1.2 }}
     animate={{ scale: 1 }}
     transition={{ duration: 1.5 }}
   >
-    {/* Darker, more solid gradient for better text contrast */}
-    <div className="absolute inset-0 bg-gradient-to-br from-purple-950 via-purple-900 to-purple-950 opacity-100 " />
-    <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1589391886645-d51941baf7fb?ixlib=rb-4.0.3')] bg-cover bg-center bg-no-repeat opacity-10" />
+    {/* Light gradient for white background */}
+    <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-white to-purple-50 opacity-100" />
+    <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1589391886645-d51941baf7fb?ixlib=rb-4.0.3')] bg-cover bg-center bg-no-repeat opacity-5" />
   </motion.div>
 
   <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 md:py-32">
@@ -87,26 +85,26 @@ const LawFirms = () => {
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-lg rounded-full px-3 sm:px-4 py-1.5 sm:py-2 mb-4 sm:mb-6 border border-white/30 shadow-lg"
+        className="inline-flex items-center gap-2 bg-purple-50 backdrop-blur-lg rounded-full px-3 sm:px-4 py-1.5 sm:py-2 mb-4 sm:mb-6 border border-purple-200 shadow-sm"
       >
-        <Gavel className="w-3 h-3 sm:w-4 sm:h-4 text-purple-200" />
-        <span className="text-white text-xs sm:text-sm font-semibold">Trusted by Top UK Law Firms</span>
+        <Gavel className="w-3 h-3 sm:w-4 sm:h-4 text-purple-600" />
+        <span className="text-purple-700 text-xs sm:text-sm font-semibold">Trusted by Top UK Law Firms</span>
       </motion.div>
 
       <motion.h1 
-        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-4 sm:mb-6 leading-tight font-heading"
+        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-neutral-950 mb-4 sm:mb-6 leading-tight font-heading"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
       >
         Transforming Client
-        <span className="font-heading block bg-gradient-to-r from-purple-300 via-purple-200 to-white bg-clip-text text-transparent">
+        <span className="font-heading block bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
           Call Handling
         </span>
       </motion.h1>
 
       <motion.p 
-        className="text-base sm:text-lg md:text-xl text-gray-100 mb-6 sm:mb-8 max-w-3xl mx-auto px-4 sm:px-0 leading-relaxed font-medium"
+        className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto px-4 sm:px-0 leading-relaxed font-medium"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
@@ -121,7 +119,7 @@ const LawFirms = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.7 }}
       >
-        <button className="group bg-white text-purple-900 px-8 sm:px-10 py-3.5 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 w-auto min-w-[170px] sm:min-w-[190px] shadow-lg">
+        <button className="group bg-purple-600 text-white px-8 sm:px-10 py-3.5 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 w-auto min-w-[170px] sm:min-w-[190px] shadow-lg">
           Book a Demo
           <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
         </button>
@@ -141,14 +139,14 @@ const LawFirms = () => {
         ].map((stat, idx) => (
           <motion.div 
             key={idx}
-            className="text-center bg-white/5 backdrop-blur-sm rounded-2xl p-3 sm:p-4 transition-all duration-300 hover:bg-white/10"
+            className="text-center bg-purple-50 rounded-2xl p-3 sm:p-4 transition-all duration-300 hover:bg-purple-100"
             whileHover={{ y: -5, scale: 1.02 }}
           >
             <div className="flex justify-center mb-2 sm:mb-3">
-              <stat.icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-purple-200" />
+              <stat.icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-purple-600" />
             </div>
-            <div className="text-xl sm:text-2xl md:text-3xl font-bold text-white">{stat.value}</div>
-            <div className="text-purple-100 text-xs sm:text-sm font-medium">{stat.label}</div>
+            <div className="text-xl sm:text-2xl md:text-3xl font-bold text-neutral-950">{stat.value}</div>
+            <div className="text-purple-600 text-xs sm:text-sm font-medium">{stat.label}</div>
           </motion.div>
         ))}
       </motion.div>
@@ -161,8 +159,8 @@ const LawFirms = () => {
     animate={{ y: [0, 10, 0] }}
     transition={{ repeat: Infinity, duration: 1.5 }}
   >
-    <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-white/40 rounded-full flex justify-center">
-      <div className="w-1 h-2 bg-white rounded-full mt-2 animate-bounce" />
+    <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-purple-300 rounded-full flex justify-center">
+      <div className="w-1 h-2 bg-purple-600 rounded-full mt-2 animate-bounce" />
     </div>
   </motion.div>
 </section>

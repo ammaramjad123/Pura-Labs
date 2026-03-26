@@ -101,9 +101,6 @@ export default function Navbar() {
 
  // Define which pages should be dark (add or remove paths as needed)
 const darkPages = [
-  "/industries/law-firms",
-  "/industries/veterinary-clinics",
-  "/industries/finance",
   "/industries/real-estate",
   "/industries/insurance",
   "/industries/recruitment",

@@ -62,18 +62,14 @@ const GPPractices = () => {
     <div className="absolute top-20 left-10">
       <Stethoscope className="w-32 h-32 text-purple-600" />
     </div>
-    <div className="absolute bottom-20 right-10">
-      <Heart className="w-40 h-40 text-purple-600" />
-    </div>
-    <div className="absolute top-1/3 right-1/4">
-      <Pill className="w-24 h-24 text-purple-600" />
-    </div>
   </div>
 
   <div className="container px-4 mx-auto relative z-10">
     <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+      
       {/* Content Section - LEFT SIDE */}
-      <div className="lg:w-1/2 text-center lg:text-left">
+      <div className="relative z-20 flex-1 text-center lg:text-left">
+        
         <div className="inline-flex items-center gap-2 bg-purple-50 border border-purple-200 rounded-full px-4 py-2 mb-8">
           <div className="flex -space-x-2">
             {[1, 2, 3].map((i) => (
@@ -82,7 +78,9 @@ const GPPractices = () => {
               </div>
             ))}
           </div>
-          <span className="text-[10px] font-black uppercase tracking-widest text-purple-700">The Future of GP Practice Management</span>
+          <span className="text-[10px] font-black uppercase tracking-widest text-purple-700">
+            The Future of GP Practice Management
+          </span>
         </div>
 
         <motion.h1
@@ -115,6 +113,7 @@ const GPPractices = () => {
             Start Your Journey
             <ArrowRight className="w-4 h-4" />
           </button>
+
           <button className="w-full sm:w-auto h-16 px-10 bg-transparent border border-gray-200 text-gray-700 font-black rounded-2xl hover:bg-gray-50 transition-all text-xs uppercase tracking-widest gap-3 flex items-center justify-center group">
             <Youtube className="w-5 h-5 text-red-500" />
             Watch Demo
@@ -135,59 +134,98 @@ const GPPractices = () => {
               ))}
             </div>
           </div>
+
           <div className="w-px h-10 bg-gray-200" />
+
           <p className="text-[10px] font-black uppercase tracking-widest text-gray-500 leading-tight">
             Early Adopter <br /> Rating
           </p>
         </motion.div>
       </div>
 
-      {/* NEXBOT 3D Model - RIGHT SIDE */}
-      <div className="lg:w-1/2 relative">
+      {/* Animated Logo */}
+      <div className="relative flex-1">
         <motion.div
           initial={{ opacity: 0, x: 50, scale: 0.95 }}
           animate={{ opacity: 1, x: 0, scale: 1 }}
           transition={{ duration: 1, ease: "circOut" }}
           className="relative z-10"
         >
-          <div className="rounded-3xl p-4 shadow-2xl">
-            {/* Spline Viewer with NEXBOT Robot */}
-            <div className="relative w-full aspect-square rounded-2xl overflow-hidden">
-              <iframe
-                src='https://my.spline.design/nexbotrobotcharacterconcept-SgITIbKf7mATL27ggLaRhrmO/'
-                frameBorder='0'
-                width='100%'
-                height='100%'
-                title="NEXBOT AI Assistant"
-                className="w-full h-full"
-              />
+          <div className="relative">
+            
+            <div className="relative w-full aspect-square flex items-center justify-center">
               
-             
+              {/* Logo */}
+              <motion.img
+                src="/logo.png"
+                alt="Pura AI Logo"
+                className="w-48 h-48 md:w-64 md:h-64 object-contain relative z-10"
+                animate={{ scale: [1, 1.05, 1, 1.03, 1] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              />
 
-              {/* Interactive Hint */}
-              <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-sm rounded-full p-2 z-20">
-                <motion.div
-                  animate={{ rotate: [0, 10, -10, 0] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >
-                  <span className="text-white text-xs">🖱️</span>
-                </motion.div>
+              {/* Ripple Rings - Smaller on Mobile */}
+              <motion.div
+                className="absolute inset-0 flex items-center justify-center scale-75 md:scale-100"
+              >
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute rounded-full border-2 border-purple-400/40"
+                    style={{
+                      width: 120 + i * 30,
+                      height: 120 + i * 30,
+                    }}
+                    animate={{
+                      scale: [1, 1.5 + i * 0.1, 1],
+                      opacity: [0.6, 0, 0.6],
+                    }}
+                    transition={{
+                      duration: 2.5,
+                      repeat: Infinity,
+                      delay: i * 0.2,
+                      ease: "easeOut",
+                    }}
+                  />
+                ))}
+              </motion.div>
+
+              {/* Glow */}
+              <motion.div
+                className="absolute inset-0 rounded-full bg-purple-500/20"
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.3, 0.6, 0.3],
+                }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+
+              {/* Sound Bars */}
+              <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-1">
+                {[...Array(12)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    className="w-1 bg-purple-500 rounded-full"
+                    animate={{
+                      height: [8, 20 + Math.random() * 30, 8],
+                    }}
+                    transition={{
+                      duration: 0.5 + Math.random() * 0.5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: i * 0.05,
+                    }}
+                    style={{ height: 8 }}
+                  />
+                ))}
               </div>
             </div>
           </div>
         </motion.div>
-
-        {/* Floating elements */}
-        <motion.div
-          animate={{ y: [0, -20, 0] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-10 -right-10 w-40 h-40 bg-purple-200/30 rounded-full blur-[80px] -z-10"
-        />
-        <motion.div
-          animate={{ y: [0, 20, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -bottom-10 -left-10 w-64 h-64 bg-purple-100/30 rounded-full blur-[100px] -z-10"
-        />
       </div>
     </div>
   </div>
