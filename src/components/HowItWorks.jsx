@@ -13,6 +13,7 @@ const scenes = [
   {
     id: 1,
     eyebrow: "Step 01",
+    label: "Build",
     title: "We Build Your AI Agent Around Your Business",
     description:
       "We train your AI on your services, opening hours, FAQs, pricing, and call-handling preferences so it can respond like a real member of your team.",
@@ -32,6 +33,7 @@ const scenes = [
   {
     id: 2,
     eyebrow: "Step 02",
+    label: "Deploy",
     title: "Your AI Agent Answers Every Call",
     description:
       "When someone calls, your AI responds instantly with a natural human-like voice, captures details, books appointments, and routes calls correctly.",
@@ -51,9 +53,10 @@ const scenes = [
   {
     id: 3,
     eyebrow: "Step 03",
+    label: "Execute",
     title: "Your Team Gets Everything Instantly",
     description:
-      "After each call, your team receives caller details, enquiry summaries, appointment bookings, and next actions — all in real time.",
+      "After each call, your team receives caller details, enquiry summaries, appointment bookings, and next actions, all in real time.",
     icon: Mail,
     accent: "from-purple-600 via-blue-500 to-cyan-400",
     leftTitle: "Call Outcome",
@@ -70,6 +73,7 @@ const scenes = [
   {
     id: 4,
     eyebrow: "Step 04",
+    label: "Capture",
     title: "Capture Leads",
     description:
       "Your AI works 24/7 during busy periods, after hours, and on weekends so more calls turn into bookings, leads, and revenue.",
@@ -173,7 +177,7 @@ export default function HowItWorks() {
                     {scene.eyebrow}
                   </div>
                   <div className="mt-1 text-sm font-semibold text-neutral-900">
-                    {scene.title.split(" ").slice(0, 3).join(" ")}
+                    {scene.label}
                   </div>
                 </div>
               </div>

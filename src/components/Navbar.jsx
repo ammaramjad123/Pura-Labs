@@ -83,9 +83,9 @@ const industries = [
 
 const navLinks = [
   { label: "Home", path: "/", type: "route" },
-  { label: "About Us", path: "#about", type: "hash", targetPage: "/" },
-  { label: "Pricing", path: "#pricing", type: "hash", targetPage: "/" },
-  { label: "Contact Us", path: "#contact", type: "hash", targetPage: "/" },
+    { label: "About Us", path: "/about", type: "route" },
+ { label: "Pricing", path: "/pricing", type: "route" },  // Changed to route
+  { label: "Contact Us", path: "/contact", type: "route" }, // Changed to route
 ];
 
 export default function Navbar() {
@@ -138,7 +138,12 @@ const isDarkPage = darkPages.includes(location.pathname);
     : "bg-white/10 backdrop-blur-md";
 
   // ✅ Add the hash navigation function inside component
-  const handleHashNavigation = (link) => {
+  const handleNavigation = (link) => {
+  if (link.type === "route") {
+    // For regular page navigation
+    navigate(link.path);
+  } else {
+    // For hash navigation (like #about on homepage)
     const currentPath = location.pathname;
     const targetPath = link.targetPage || "/";
     const hash = link.path;
@@ -151,7 +156,8 @@ const isDarkPage = darkPages.includes(location.pathname);
     } else {
       window.location.href = `${targetPath}${hash}`;
     }
-  };
+  }
+};
 
   useEffect(() => {
     const handleScroll = () => {
@@ -260,14 +266,19 @@ const isDarkPage = darkPages.includes(location.pathname);
                   />
                 </Link>
 
-                <button
-                  onClick={() => handleHashNavigation({ label: "About Us", path: "#about", targetPage: "/" })}
-                  className={`group relative whitespace-nowrap text-[20px] font-medium transition-colors ${navText} ${navHover} cursor-pointer`}
-                >
-                  About Us
-                  <span className={`absolute left-0 top-full mt-1 h-[2px] w-0 rounded-full transition-all duration-300 group-hover:w-full ${underline}`} />
-                </button>
-
+                <Link
+  to="/about"
+  className={`group relative whitespace-nowrap text-[20px] font-medium transition-colors ${
+    location.pathname === "/about" ? activeText : navText
+  } ${location.pathname !== "/about" && navHover}`}
+>
+  About Us
+  <span
+    className={`absolute left-0 top-full mt-1 h-[2px] w-0 rounded-full transition-all duration-300 group-hover:w-full ${
+      location.pathname === "/about" ? activeUnderline : underline
+    }`}
+  />
+</Link>
                 {/* INDUSTRIES DROPDOWN */}
                 <div
                   className="relative"
@@ -341,21 +352,33 @@ const isDarkPage = darkPages.includes(location.pathname);
                   </div>
                 </div>
 
-                <button
-                  onClick={() => handleHashNavigation({ label: "Pricing", path: "#pricing", targetPage: "/" })}
-                  className={`group relative whitespace-nowrap text-[20px] font-medium transition-colors ${navText} ${navHover} cursor-pointer`}
-                >
-                  Pricing
-                  <span className={`absolute left-0 top-full mt-1 h-[2px] w-0 rounded-full transition-all duration-300 group-hover:w-full ${underline}`} />
-                </button>
+              <Link
+  to="/pricing"
+  className={`group relative whitespace-nowrap text-[20px] font-medium transition-colors ${
+    location.pathname === "/pricing" ? activeText : navText
+  } ${location.pathname !== "/pricing" && navHover}`}
+>
+  Pricing
+  <span
+    className={`absolute left-0 top-full mt-1 h-[2px] w-0 rounded-full transition-all duration-300 group-hover:w-full ${
+      location.pathname === "/pricing" ? activeUnderline : underline
+    }`}
+  />
+</Link>
 
-                <button
-                  onClick={() => handleHashNavigation({ label: "Contact Us", path: "#contact", targetPage: "/" })}
-                  className={`group relative whitespace-nowrap text-[20px] font-medium transition-colors ${navText} ${navHover} cursor-pointer`}
-                >
-                  Contact Us
-                  <span className={`absolute left-0 top-full mt-1 h-[2px] w-0 rounded-full transition-all duration-300 group-hover:w-full ${underline}`} />
-                </button>
+               <Link
+  to="/contact"
+  className={`group relative whitespace-nowrap text-[20px] font-medium transition-colors ${
+    location.pathname === "/contact" ? activeText : navText
+  } ${location.pathname !== "/contact" && navHover}`}
+>
+  Contact Us
+  <span
+    className={`absolute left-0 top-full mt-1 h-[2px] w-0 rounded-full transition-all duration-300 group-hover:w-full ${
+      location.pathname === "/contact" ? activeUnderline : underline
+    }`}
+  />
+</Link>
               </nav>
 
               <button
@@ -431,17 +454,17 @@ const isDarkPage = darkPages.includes(location.pathname);
                   Home
                 </Link>
 
-                <button
-                  onClick={() => {
-                    handleHashNavigation({ label: "About Us", path: "#about", targetPage: "/" });
-                    setMobileOpen(false);
-                  }}
-                  className={`py-4 text-[28px] font-medium transition-colors ${
-                    isDarkPage ? "text-neutral-800" : "text-neutral-900"
-                  }`}
-                >
-                  About Us
-                </button>
+               <Link
+  to="/about"
+  className={`py-4 text-[28px] font-medium transition-colors ${
+    location.pathname === "/about" 
+      ? "text-blue-600" 
+      : isDarkPage ? "text-neutral-800" : "text-neutral-900"
+  }`}
+  onClick={() => setMobileOpen(false)}
+>
+  About Us
+</Link>
 
                 <button
                   type="button"
@@ -505,29 +528,29 @@ const isDarkPage = darkPages.includes(location.pathname);
                   )}
                 </div>
 
-                <button
-                  onClick={() => {
-                    handleHashNavigation({ label: "Pricing", path: "#pricing", targetPage: "/" });
-                    setMobileOpen(false);
-                  }}
-                  className={`py-4 text-[28px] font-medium transition-colors ${
-                    isDarkPage ? "text-neutral-800" : "text-neutral-900"
-                  }`}
-                >
-                  Pricing
-                </button>
+               <Link
+  to="/pricing"
+  className={`py-4 text-[28px] font-medium transition-colors ${
+    location.pathname === "/pricing" 
+      ? "text-blue-600" 
+      : isDarkPage ? "text-neutral-800" : "text-neutral-900"
+  }`}
+  onClick={() => setMobileOpen(false)}
+>
+  Pricing
+</Link>
 
-                <button
-                  onClick={() => {
-                    handleHashNavigation({ label: "Contact Us", path: "#contact", targetPage: "/" });
-                    setMobileOpen(false);
-                  }}
-                  className={`py-4 text-[28px] font-medium transition-colors ${
-                    isDarkPage ? "text-neutral-800" : "text-neutral-900"
-                  }`}
-                >
-                  Contact Us
-                </button>
+               <Link
+  to="/contact"
+  className={`py-4 text-[28px] font-medium transition-colors ${
+    location.pathname === "/contact" 
+      ? "text-blue-600" 
+      : isDarkPage ? "text-neutral-800" : "text-neutral-900"
+  }`}
+  onClick={() => setMobileOpen(false)}
+>
+  Contact Us
+</Link>
               </div>
             </div>
           </div>

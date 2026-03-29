@@ -1,6 +1,7 @@
 // src/pages/Industry/DentalPractices.jsx
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   Phone,
   Calendar,
@@ -98,8 +99,7 @@ const DentalPractices = () => {
         transition={{ duration: 0.6, delay: 0.2 }}
         className="max-w-2xl text-lg md:text-xl text-gray-600 font-medium leading-relaxed"
       >
-        AI voice agents that handle appointments, treatment enquiries, and patient reminders
-        — ensuring every patient gets the care they need, when they need it.
+        AI voice agents that handle appointments, treatment enquiries, and patient reminders, ensuring every patient gets the care they need, when they need it.
       </motion.p>
 
       {/* CTA Group */}
@@ -107,12 +107,14 @@ const DentalPractices = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.4 }}
-        className="flex flex-col sm:flex-row gap-6 pt-4 w-full sm:w-auto"
+        className="flex flex-col sm:flex-row gap-6 pt-4 w-full sm:w-auto pb-12"
       >
-        <button className="group h-16 px-12 rounded-[2rem] bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-black text-lg shadow-2xl shadow-blue-500/30 hover:scale-[1.05] transition-all flex items-center justify-center gap-2 w-full sm:w-auto text-center">
+         <Link to="/contact">
+        <button className="group h-16 px-12 rounded-[2rem] bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-black text-lg shadow-2xl shadow-blue-500/30 hover:scale-[1.05] transition-all flex items-center justify-center gap-2 w-full sm:w-auto text-center cursor-pointer">
           Start Building Now
           <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
         </button>
+         </Link>
         <button className="h-16 px-10 rounded-[2rem] border border-gray-200 bg-white/50 backdrop-blur-xl font-black text-lg hover:bg-gray-50 transition-all flex items-center justify-center gap-3 w-full sm:w-auto text-center">
           <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
             <Play className="w-4 h-4 text-blue-600 fill-blue-600" />
@@ -121,26 +123,7 @@ const DentalPractices = () => {
         </button>
       </motion.div>
 
-      {/* Trust Indicators */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.8 }}
-        className="flex flex-wrap justify-center items-center gap-x-12 gap-y-8 pt-12 pb-6"
-      >
-        <div className="flex items-center gap-2 font-black italic text-xl tracking-tighter text-gray-900">
-          <Smile className="w-6 h-6 text-blue-600" /> 500+ PRACTICES
-        </div>
-        <div className="flex items-center gap-2 font-black italic text-xl tracking-tighter text-gray-900">
-          <Star className="w-6 h-6 text-blue-600" /> 4.9/5 RATING
-        </div>
-        <div className="flex items-center gap-2 font-black italic text-xl tracking-tighter text-gray-900">
-          <Shield className="w-6 h-6 text-blue-600" /> GDC COMPLIANT
-        </div>
-        <div className="flex items-center gap-2 font-black italic text-xl tracking-tighter text-gray-900">
-          <Users className="w-6 h-6 text-blue-600" /> 24/7 SUPPORT
-        </div>
-      </motion.div>
+     
     </div>
   </div>
 
@@ -513,24 +496,20 @@ const DentalPractices = () => {
                 Ready to Transform Your Dental Practice?
               </h2>
               <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-                Join 500+ dental practices improving patient care and reducing admin burden
+                Join a growing list of dental practices improving patient care and reducing admin burden
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button className="group bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
                   Book a Demo
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-50 transition-all duration-300">
+                 <Link to="/contact">
+                <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-50 transition-all duration-300 cursor-pointer">
                   Contact Our Team
                 </button>
+                 </Link>
               </div>
-              <p className="text-gray-500 mt-8 text-sm flex flex-wrap justify-center gap-x-2 gap-y-1">
-                <span>GDC compliant</span>
-                <span className="text-gray-400">•</span>
-                <span>GDPR compliant</span>
-                <span className="text-gray-400">•</span>
-                <span>14-day free trial</span>
-              </p>
+             
             </div>
           </motion.div>
         </div>

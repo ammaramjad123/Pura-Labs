@@ -12,6 +12,13 @@ import Finance from "./pages/Industry/Finance";
 import RealEstate from "./pages/Industry/RealEstate";
 import Insurance from "./pages/Industry/Insurance";
 import Recruitment from "./pages/Industry/Recruitment";
+import Terms from "./pages/Terms";  // Add this import
+import Privacy from "./pages/Privacy";
+import Cookies from "./pages/Cookies";
+import PricingPage from "./pages/PricingPage"; // Add this import 
+import ContactUsPage from "./pages/ContactUsPage"; // Add this import
+import AboutUsPage from "./pages/AboutUsPage"; // Add this import
+import IndustriesPage from "./pages/IndustriesPage"; // Add this import
 
 function App() {
   return (
@@ -32,6 +39,14 @@ function App() {
          <Route path="/industries/real-estate" element={<RealEstate />} />
          <Route path="/industries/insurance" element={<Insurance />} />
          <Route path="/industries/recruitment" element={<Recruitment />} />
+          <Route path="/terms" element={<Terms />} />  {/* Add this line */}
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/cookies" element={<Cookies />} />
+          <Route path="/pricing" element={<PricingPage />} />
+          <Route path="/contact" element={<ContactUsPage />} />
+          <Route path="/about" element={<AboutUsPage />} /> 
+          <Route path="/industries" element={<IndustriesPage />} />
+        
       </Routes>
 
       {/* ✅ MOVE HERE */}

@@ -1,6 +1,7 @@
 // src/pages/Industry/Finance.jsx
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   Phone,
   Calendar,
@@ -125,7 +126,7 @@ const Finance = () => {
           className="inline-flex items-center gap-2 bg-gray-100 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-gray-500"
         >
           <Sparkles className="w-4 h-4 text-blue-600" />
-          <span className="text-xs font-bold uppercase tracking-wider text-gray-700">Trusted by 500+ UK Financial Firms</span>
+          <span className="text-xs font-bold uppercase tracking-wider text-gray-700">Finanace Ai</span>
         </motion.div>
 
         <motion.h1
@@ -146,8 +147,7 @@ const Finance = () => {
           transition={{ delay: 0.4 }}
           className="text-base md:text-lg text-gray-600 mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0"
         >
-          AI voice agents that capture every enquiry, schedule consultations, and manage client follow-ups
-          — ensuring your financial advisory firm never misses a high-value opportunity.
+          AI voice agents that capture every enquiry, schedule consultations, and manage client follow-ups, ensuring your financial advisory firm never misses a high-value opportunity.
         </motion.p>
 
         <motion.div
@@ -156,13 +156,15 @@ const Finance = () => {
           transition={{ delay: 0.5 }}
           className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
         >
-          <button className="group relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full font-bold text-base hover:shadow-2xl transition-all duration-300 flex items-center justify-center">
+           <Link to="/contact">
+          <button className="group relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full font-bold text-base hover:shadow-2xl transition-all duration-300 flex items-center justify-center cursor-pointer">
             <span className="relative z-10 flex items-center gap-2">
               Start Your Journey
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </span>
             <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </button>
+           </Link>
           <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full font-bold text-base hover:bg-gray-50 transition-all duration-300 flex items-center justify-center gap-2">
             <Play className="w-5 h-5" />
             Watch Demo
@@ -338,8 +340,8 @@ const Finance = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { value: "500+", label: "Financial Firms", icon: Briefcase },
-              { value: "£5B+", label: "Assets Managed", icon: DollarSign },
+              { value: "100%", label: "Calls Answered", icon: Briefcase },
+              { value: "45%", label: "Time Saving", icon: DollarSign },
               { value: "98%", label: "Client Retention", icon: Users },
               { value: "24/7", label: "Client Support", icon: Shield }
             ].map((stat, idx) => (
@@ -652,7 +654,7 @@ const Finance = () => {
             {[
               { icon: Shield, title: "FCA Compliant", description: "Fully compliant with UK financial regulations", color: "from-blue-500 to-cyan-500" },
               { icon: Clock, title: "24/7 Availability", description: "Capture enquiries anytime, anywhere", color: "from-cyan-500 to-blue-500" },
-              { icon: TrendingUp, title: "Proven Results", description: "35% more meetings, 45% less admin", color: "from-blue-500 to-indigo-500" },
+              { icon: TrendingUp, title: "Improved Results", description: "35% more meetings, 45% less admin", color: "from-blue-500 to-indigo-500" },
               { icon: Lock, title: "Data Security", description: "Bank-level encryption and GDPR ready", color: "from-indigo-500 to-purple-500" }
             ].map((reason, idx) => (
               <motion.div
@@ -691,24 +693,20 @@ const Finance = () => {
                 Ready to Grow Your Practice?
               </h2>
               <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto">
-                Join 500+ financial firms capturing every opportunity and serving more clients
+                Join a growing number of financial firms capturing every opportunity and serving more clients
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                 <button className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-sm sm:text-base md:text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
                   Book a Demo
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <button className="border-2 border-blue-200 text-blue-700 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-sm sm:text-base md:text-lg hover:bg-blue-50 transition-all duration-300">
+                 <Link to="/contact">
+                <button className="border-2 border-blue-200 text-blue-700 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-sm sm:text-base md:text-lg hover:bg-blue-50 transition-all duration-300 cursor-pointer">
                   Contact Sales
                 </button>
+                 </Link>
               </div>
-              <p className="text-gray-500 mt-6 sm:mt-8 text-[11px] sm:text-xs md:text-sm flex flex-wrap justify-center gap-x-2 gap-y-1">
-                <span>FCA compliant</span>
-                <span className="text-gray-300">•</span>
-                <span>GDPR ready</span>
-                <span className="text-gray-300">•</span>
-                <span>14-day free trial</span>
-              </p>
+             
             </div>
           </motion.div>
         </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { MessageCircle, Phone, Mail, MapPin, ArrowRight } from "lucide-react";
 
 const Footer = () => {
@@ -83,12 +84,9 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3 hover:text-white transition">
                 <Mail size={18} />
-                contact@puralabs.co.uk
+                sales@puralabs.ai
               </li>
-              <li className="flex items-start gap-3 hover:text-white transition">
-                <MapPin size={18} />
-                123 Street, London, UK
-              </li>
+              
             </ul>
           </div>
         </div>
@@ -96,14 +94,18 @@ const Footer = () => {
         {/* Divider */}
         <div className="border-t border-white/10 my-12"></div>
 
-        {/* Bottom */}
+        {/* Bottom - Updated with proper links */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-gray-500">
           <div className="flex flex-wrap gap-6">
-            {["Terms & Conditions", "Privacy Policy", "Cookies"].map((item, i) => (
-              <span key={i} className="hover:text-white cursor-pointer transition">
-                {item}
-              </span>
-            ))}
+            <Link to="/terms" className="hover:text-white cursor-pointer transition">
+              Terms & Conditions
+            </Link>
+            <Link to="/privacy" className="hover:text-white cursor-pointer transition">
+              Privacy Policy
+            </Link>
+            <Link to="/cookies" className="hover:text-white cursor-pointer transition">
+              Cookies
+            </Link>
           </div>
 
           <p className="text-gray-500">© {new Date().getFullYear()} PuraLabs. All rights reserved.</p>

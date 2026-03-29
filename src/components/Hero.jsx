@@ -1,5 +1,6 @@
 import { ArrowRight, Mic } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
@@ -70,13 +71,15 @@ export default function Hero() {
           transition={{ delay: 0.6 }}
           className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
+          <Link to="/about">
           <motion.button
             whileHover={{ scale: 1.07 }}
             whileTap={{ scale: 0.96 }}
             className="flex items-center justify-center gap-2 min-w-[180px] px-6 py-3 rounded-full bg-purple-600 text-white font-semibold shadow-lg hover:bg-purple-700 transition cursor-pointer"
-          >
+            >
             Get Started <ArrowRight size={18} />
           </motion.button>
+            </Link>
 
           <motion.button
             whileHover={{ scale: 1.05 }}

@@ -1,6 +1,7 @@
 // src/pages/Industry/Insurance.jsx
 import React, { useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   Phone,
   Calendar,
@@ -124,7 +125,7 @@ const Insurance = () => {
                 className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-cyan-50 border border-blue-200 rounded-full px-4 py-2 mb-6"
               >
                 <Sparkles className="w-4 h-4 text-blue-600" />
-                <span className="text-[10px] font-black uppercase tracking-widest text-blue-700">Trusted by 500+ UK Insurance Brokers</span>
+                <span className="text-[10px] font-black uppercase tracking-widest text-blue-700">Insurance AI</span>
               </motion.div>
 
               <motion.h1
@@ -145,8 +146,7 @@ const Insurance = () => {
                 transition={{ delay: 0.3 }}
                 className="text-base md:text-lg text-gray-600 mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0"
               >
-                AI voice agents that capture every enquiry, provide instant quotes, and schedule consultations
-                — ensuring your insurance brokerage never misses a high-value opportunity.
+                AI voice agents that capture every enquiry, provide instant quotes, and schedule consultations, ensuring your insurance brokerage never misses a high-value opportunity.
               </motion.p>
 
               <motion.div
@@ -156,7 +156,8 @@ const Insurance = () => {
   className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
 >
   {/* Primary Button */}
-  <button className="group relative overflow-hidden bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-8 py-4 rounded-full font-bold text-base hover:shadow-2xl transition-all duration-300 flex items-center justify-center">
+   <Link to="/contact">
+  <button className="group relative overflow-hidden bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-8 py-4 rounded-full font-bold text-base hover:shadow-2xl transition-all duration-300 flex items-center justify-center cursor-pointer">
     
     <span className="relative z-10 flex items-center gap-2">
       Get Protected Today
@@ -165,6 +166,7 @@ const Insurance = () => {
 
     <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-cyan-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
   </button>
+   </Link>
 
   {/* Secondary Button */}
   <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full font-bold text-base hover:bg-gray-50 transition-all duration-300 flex items-center justify-center gap-2">
@@ -322,7 +324,7 @@ const Insurance = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { value: "500+", label: "Insurance Brokers", icon: Building2 },
+              { value: "100%", label: "Calls Answered", icon: Building2 },
               { value: "100%", label: "Quote Capture", icon: TrendingUp },
               { value: "45%", label: "Faster Quotes", icon: Clock },
               { value: "24/7", label: "Claims Support", icon: Shield }
@@ -675,24 +677,20 @@ const Insurance = () => {
                 Ready to Sell More Policies?
               </h2>
               <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-                Join 500+ insurance brokers capturing every quote and winning more business
+                Join a growing list of insurance brokers capturing every quote and winning more business
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button className="group bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
                   Book a Demo
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <button className="border-2 border-blue-200 text-blue-700 px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-50 transition-all duration-300">
+                 <Link to="/contact">
+                <button className="border-2 border-blue-200 text-blue-700 px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-50 transition-all duration-300 cursor-pointer">
                   Contact Sales
                 </button>
+                 </Link>
               </div>
-              <p className="text-gray-500 mt-8 text-sm flex flex-wrap justify-center gap-x-2 gap-y-1">
-                <span>FCA compliant</span>
-                <span className="text-gray-400">•</span>
-                <span>GDPR ready</span>
-                <span className="text-gray-400">•</span>
-                <span>14-day free trial</span>
-              </p>
+            
             </div>
           </motion.div>
         </div>

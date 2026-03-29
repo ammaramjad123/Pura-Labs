@@ -115,25 +115,18 @@ const Contact = () => {
       title: 'Call Us',
       details: ['+44 (0) 79 7720 7542', '+44 (0) 20 8765 4321'],
       action: 'Call Now',
-      link: 'tel:+442012345678',
+      link: 'tel:+44 (0) 79 7720 7542',
       color: 'from-blue-500 to-cyan-500'
     },
     {
       icon: <Mail className="w-6 h-6" />,
       title: 'Email Us',
-      details: ['sales@puralabs.co.uk', 'support@puralabs.co.uk'],
+      details: ['sales@puralabs.ai',],
       action: 'Send Email',
-      link: 'mailto:sales@puralabs.co.uk',
+      link: 'mailto:sales@puralabs.ai',
       color: 'from-purple-500 to-pink-500'
     },
-    {
-      icon: <MapPin className="w-6 h-6" />,
-      title: 'Visit Us',
-      details: ['123 Street, London', 'EC1V 1AA, United Kingdom'],
-      action: 'Get Directions',
-      link: '#',
-      color: 'from-green-500 to-emerald-500'
-    }
+   
   ];
 
   const faqs = [
@@ -403,20 +396,18 @@ const Contact = () => {
                 </div>
 
                 {/* Office Hours */}
-                <div className="border-t border-purple-700 pt-6 mb-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    <Clock className="w-5 h-5" />
-                    <h3 className="font-semibold">Office Hours</h3>
-                  </div>
-                  <div className="space-y-2">
-                    {officeHours.map((schedule, idx) => (
-                      <div key={idx} className="flex justify-between text-sm">
-                        <span className="text-purple-200">{schedule.day}</span>
-                        <span>{schedule.hours}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+<div className="border-t border-purple-700 pt-6 mb-6">
+  <div className="flex items-center gap-2 mb-4">
+    <Clock className="w-5 h-5" />
+    <h3 className="font-semibold">Support Availability</h3>
+  </div>
+  <div className="space-y-2">
+    <div className="flex justify-between text-sm">
+      <span className="text-purple-200">Monday - Sunday</span>
+      <span className="font-medium text-green-300">24/7 Available</span>
+    </div>
+  </div>
+</div>
 
                 {/* Social Links */}
                 <div className="border-t border-purple-700 pt-6">

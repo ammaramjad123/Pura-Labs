@@ -1,6 +1,7 @@
 // src/pages/Industry/GPPractices.jsx
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   Phone,
   Calendar,
@@ -99,8 +100,7 @@ const GPPractices = () => {
           transition={{ delay: 0.2 }}
           className="text-base md:text-lg max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed text-gray-600"
         >
-          AI voice agents that handle appointments, prescriptions, and patient enquiries 24/7
-          — reducing phone pressure on your reception team and improving patient experience.
+          AI voice agents that handle appointments, prescriptions, and patient enquiries 24/7, reducing phone pressure on your reception team and improving patient experience.
         </motion.p>
 
         <motion.div
@@ -549,7 +549,7 @@ const GPPractices = () => {
         { icon: Shield, title: "NHS Compliant", description: "Fully compliant with NHS data security standards", color: "from-purple-500 to-purple-600" },
         { icon: Clock, title: "24/7 Availability", description: "Patients can book appointments anytime", color: "from-purple-500 to-purple-600" },
         { icon: Users, title: "Reduce Staff Burnout", description: "Free up receptionists for patient care", color: "from-purple-500 to-purple-600" },
-        { icon: TrendingUp, title: "Proven Results", description: "40% less admin time, 25% fewer no-shows", color: "from-purple-500 to-purple-600" }
+        { icon: TrendingUp, title: "Improved Results", description: "40% less admin time, 25% fewer no-shows", color: "from-purple-500 to-purple-600" }
       ].map((reason, idx) => (
         <motion.div
           key={idx}
@@ -587,24 +587,17 @@ const GPPractices = () => {
           Ready to Transform Your Practice?
         </h2>
         <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-          Join 500+ GP practices improving patient care and reducing admin burden
+          Improve patient care and reduce admin burden in your GP Practice by joining Pura Labs today
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="group bg-purple-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
-            Book a Demo
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          
+             <Link to="/contact">
+          <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+            Contact Sales
           </button>
-          <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-50 transition-all duration-300">
-            Contact NHS Team
-          </button>
+             </Link>
         </div>
-        <p className="text-gray-500 mt-8 text-sm flex flex-wrap justify-center gap-x-2 gap-y-1">
-          <span>NHS-approved</span>
-          <span className="text-gray-400">•</span>
-          <span>GDPR compliant</span>
-          <span className="text-gray-400">•</span>
-          <span>14-day free trial</span>
-        </p>
+        
       </div>
     </motion.div>
   </div>

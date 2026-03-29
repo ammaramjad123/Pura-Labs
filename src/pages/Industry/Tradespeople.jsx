@@ -1,6 +1,7 @@
 // src/pages/Industry/Tradespeople.jsx
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   Phone,
   Calendar,
@@ -97,9 +98,9 @@ const Tradespeople = () => {
         transition={{ duration: 0.6, delay: 0.2 }}
         className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-heading font-black text-neutral-950 mb-6 leading-tight"
       >
-        Never Miss Another
+        Never Lose a Job To  
         <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">
-          Job Call
+          Missed Call
         </span>
       </motion.h1>
 
@@ -111,7 +112,7 @@ const Tradespeople = () => {
         className="text-lg sm:text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed"
       >
         AI voice agents that answer every call, capture job details, and book work automatically
-        — so you can focus on what you do best.
+        so you can focus on what you do best.
       </motion.p>
 
       {/* CTA Button - Only Watch Demo */}
@@ -454,7 +455,7 @@ const Tradespeople = () => {
               { icon: Clock, title: "24/7 Availability", description: "Answer calls even when you're on a ladder, under a sink, or driving", color: "from-blue-500 to-cyan-500" },
               { icon: Target, title: "Capture More Jobs", description: "Never lose another job to voicemail or unanswered calls", color: "from-cyan-500 to-teal-500" },
               { icon: DollarSign, title: "Cost-Effective", description: "Save thousands on reception staff while capturing more work", color: "from-teal-500 to-green-500" },
-              { icon: TrendingUp, title: "Proven Results", description: "40% more bookings, 25% fewer no-shows, £40k+ annual savings", color: "from-green-500 to-emerald-500" }
+              { icon: TrendingUp, title: "Improved Results", description: "40% more bookings, 25% fewer no-shows, £40k+ annual savings", color: "from-green-500 to-emerald-500" }
             ].map((reason, idx) => (
               <motion.div
                 key={idx}
@@ -520,26 +521,15 @@ const Tradespeople = () => {
           Join 5,000+ tradespeople who never miss another job opportunity
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="group bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
-            Start Free Trial
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </button>
-          <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-50 transition-all duration-300">
+         
+         <Link to="/contact">
+          <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-50 transition-all duration-300 cursor-pointer">
             Contact Sales
           </button>
+         </Link>
         </div>
         
-        {/* Fixed legal text with proper spacing */}
-        <p className="text-gray-500 mt-8 text-sm flex flex-wrap justify-center gap-x-2 gap-y-1">
-        <span className="hidden sm:inline">•</span>
-          <span>No credit card required</span>
-          <span className="hidden sm:inline">•</span>
-          <span className="sm:hidden block w-full h-0"></span>
-          <span>14-day free trial</span>
-          <span className="hidden sm:inline">•</span>
-          <span className="sm:hidden block w-full h-0"></span>
-          <span>Cancel anytime</span>
-        </p>
+      
       </div>
     </motion.div>
   </div>

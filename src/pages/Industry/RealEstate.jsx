@@ -1,6 +1,7 @@
 // src/pages/Industry/RealEstate.jsx
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   Phone,
   Calendar,
@@ -104,7 +105,7 @@ const RealEstate = () => {
       <div className="lg:w-1/2 text-center lg:text-left">
         <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-full px-4 py-2 mb-6">
           <Sparkles className="w-4 h-4 text-blue-600" />
-          <span className="text-[10px] font-black uppercase tracking-widest text-blue-700">Trusted by 500+ UK Estate Agents</span>
+          <span className="text-[10px] font-black uppercase tracking-widest text-blue-700">Real Estate AI</span>
         </div>
 
         <motion.h1
@@ -136,7 +137,8 @@ const RealEstate = () => {
   className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
 >
   {/* Primary Button */}
-  <button className="group relative overflow-hidden h-14 sm:h-16 px-8 sm:px-10 rounded-full bg-blue-600 text-white font-bold text-base hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center">
+   <Link to="/contact">
+  <button className="group relative overflow-hidden h-14 sm:h-16 px-8 sm:px-10 rounded-full bg-blue-600 text-white font-bold text-base hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center cursor-pointer">
 
     <span className="relative z-10 flex items-center gap-2">
       Start Your Journey
@@ -145,6 +147,7 @@ const RealEstate = () => {
 
     <div className="absolute inset-0 rounded-full bg-blue-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0" />
   </button>
+   </Link>
 
   {/* Secondary Button */}
   <button className="h-14 sm:h-16 px-8 sm:px-10 rounded-full border-2 border-gray-200 text-gray-700 font-bold text-base hover:bg-gray-50 hover:scale-105 hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2">
@@ -343,7 +346,7 @@ const RealEstate = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { value: "500+", label: "Estate Agencies", icon: Building2 },
+              { value: "100%", label: "Calls Answered", icon: Building2 },
               { value: "100%", label: "Call Answer Rate", icon: Phone },
               { value: "40%", label: "More Viewings", icon: Eye },
               { value: "24/7", label: "Lead Capture", icon: Clock }
@@ -696,24 +699,20 @@ const RealEstate = () => {
                 Ready to Sell More Properties?
               </h2>
               <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-                Join 500+ estate agencies capturing every lead and selling faster
+                Join a growing list of real estate agencies capturing every lead and selling faster
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button className="group bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
                   Book a Demo
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <button className="border-2 border-blue-200 text-blue-700 px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-50 transition-all duration-300">
+                 <Link to="/contact">
+                <button className="border-2 border-blue-200 text-blue-700 px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-50 transition-all duration-300 cursor-pointer">
                   Contact Sales
                 </button>
+                 </Link>
               </div>
-              <p className="text-gray-500 mt-8 text-sm flex flex-wrap justify-center gap-x-2 gap-y-1">
-                <span>Property Ombudsman compliant</span>
-                <span className="text-gray-400">•</span>
-                <span>GDPR ready</span>
-                <span className="text-gray-400">•</span>
-                <span>14-day free trial</span>
-              </p>
+              
             </div>
           </motion.div>
         </div>

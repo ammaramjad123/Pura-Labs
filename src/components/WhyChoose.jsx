@@ -4,7 +4,7 @@ export default function HowItWorks() {
   const steps = [
     {
       title: "We Build Your AI Agent",
-      desc: "Your AI is trained on your business — services, FAQs, workflows, and call handling preferences.",
+      desc: "Your AI is trained on your business services, FAQs, workflows, and call handling preferences.",
     },
     {
       title: "AI Answers Every Call",
@@ -16,12 +16,12 @@ export default function HowItWorks() {
     },
     {
       title: "Capture Every Opportunity",
-      desc: "Your AI works 24/7 — no missed calls, more leads, higher conversions, zero lost revenue.",
+      desc: "Your AI works 24/7, no missed calls, more leads, higher conversions, zero lost revenue.",
     },
   ];
 
   return (
-    <section className="relative w-full py-24 sm:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section id="about"  className="relative w-full py-24 sm:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
 
       {/* subtle energy background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(124,58,237,0.06),transparent_70%)]" />
@@ -129,7 +129,7 @@ export default function HowItWorks() {
 
           <p className="mt-6 max-w-3xl mx-auto text-sm sm:text-lg text-neutral-600 leading-relaxed">
             While your team focuses on closing deals and serving customers,
-            Pura AI handles every conversation — instantly, professionally, and at scale.
+            Pura AI handles every conversation instantly, professionally, and at scale.
           </p>
         </motion.div>
 

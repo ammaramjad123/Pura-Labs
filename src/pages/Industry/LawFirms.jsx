@@ -109,8 +109,7 @@ const LawFirms = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
       >
-        AI voice agents that answer every call, capture opportunities, and book consultations automatically
-        — ensuring your law firm never loses revenue to missed calls.
+        AI voice agents that answer every call, capture opportunities, and book consultations automatically ensuring your law firm never loses revenue to missed calls.
       </motion.p>
 
       <motion.div 
@@ -250,7 +249,7 @@ const LawFirms = () => {
       className="text-center mb-16"
     >
       <h2 className="text-4xl md:text-5xl font-bold text-neutral-950 font-heading mb-4">
-        How Pura AI Handles Your Calls
+        How Pura Labs Agents Handle Your Calls
       </h2>
       <p className="text-xl text-gray-600 max-w-3xl mx-auto">
         Watch how our AI agent professionally manages a legal enquiry
@@ -594,7 +593,7 @@ const LawFirms = () => {
       className="text-center mb-16"
     >
       <h2 className="text-4xl md:text-5xl font-bold text-shadow-neutral-950 font-heading mb-4">
-        Why Leading UK Law Firms Choose Pura AI
+        Why Leading Law Firms choose Pura Labs
       </h2>
       <p className="text-gray-600 text-lg max-w-2xl mx-auto">
         Trusted by solicitors and legal practices across the UK
@@ -629,7 +628,7 @@ const LawFirms = () => {
         },
         {
           icon: TrendingUp,
-          title: "Proven Results",
+          title: "Improved Results",
           description: "30% more meetings booked, 45% time savings, 22% reduction in missed revenue",
           color: "from-purple-500 to-pink-500"
         }

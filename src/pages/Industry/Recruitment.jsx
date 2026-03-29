@@ -1,6 +1,7 @@
 // src/pages/Industry/Recruitment.jsx
 import React, { useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   Phone,
   Calendar,
@@ -150,7 +151,7 @@ const Recruitment = () => {
             >
               <Zap className="w-3.5 h-3.5 text-blue-500" />
               <span className="text-[10px] font-black uppercase tracking-[0.4em] text-gray-600">
-                Recruitment AI v2.0
+                Recruitment AI
               </span>
             </motion.div>
 
@@ -186,7 +187,8 @@ const Recruitment = () => {
   className="flex flex-wrap items-center justify-center gap-6 pt-6"
 >
   {/* Primary */}
-  <button className="group relative overflow-hidden bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-8 sm:px-10 py-4 rounded-full font-bold text-base hover:shadow-2xl transition-all duration-300 flex items-center justify-center w-full sm:w-auto">
+   <Link to="/contact">
+  <button className="group relative overflow-hidden bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-8 sm:px-10 py-4 rounded-full font-bold text-base hover:shadow-2xl transition-all duration-300 flex items-center justify-center w-full sm:w-auto cursor-pointer">
     
     <span className="relative z-10 flex items-center gap-2">
       Start Recruiting
@@ -195,6 +197,7 @@ const Recruitment = () => {
 
     <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-700 to-cyan-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
   </button>
+   </Link>
 
   {/* Secondary */}
   <button className="border-2 border-gray-300 text-gray-700 px-8 sm:px-10 py-4 rounded-full font-bold text-base hover:bg-gray-50 hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto">
@@ -211,7 +214,7 @@ const Recruitment = () => {
               className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 mt-20 w-full max-w-5xl pb-12 sm:pb-0"
             >
               {[
-                { value: "10,000+", label: "Candidates Placed", icon: Users, delay: 0 },
+                { value: "100%", label: "Calls Answered", icon: Users, delay: 0 },
                 { value: "98%", label: "Screening Accuracy", icon: Target, delay: 0.1 },
                 { value: "45%", label: "Faster Hiring", icon: Clock, delay: 0.2 },
                 { value: "24/7", label: "Candidate Support", icon: Headphones, delay: 0.3 },
@@ -537,7 +540,7 @@ const Recruitment = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-black text-neutral-950 mb-4">
-              Why Recruitment Agencies Choose Pura AI
+              Why Recruitment Agencies Choose Pura Labs
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
               Trusted by agencies placing over 50,000 candidates annually
@@ -594,17 +597,13 @@ const Recruitment = () => {
                   Book a Demo
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <button className="border-2 border-blue-200 text-blue-700 px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-50 transition-all duration-300">
+                 <Link to="/contact">
+                <button className="border-2 border-blue-200 text-blue-700 px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-50 transition-all duration-300 cursor-pointer">
                   Contact Sales
                 </button>
+                 </Link>
               </div>
-              <p className="text-gray-500 mt-8 text-sm flex flex-wrap justify-center gap-x-2 gap-y-1">
-                <span>REC compliant</span>
-                <span className="text-gray-400">•</span>
-                <span>GDPR ready</span>
-                <span className="text-gray-400">•</span>
-                <span>14-day free trial</span>
-              </p>
+             
             </div>
           </motion.div>
         </div>

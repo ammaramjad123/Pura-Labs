@@ -1,6 +1,7 @@
 // src/pages/Industry/VeterinaryClinics.jsx
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   Phone,
   Calendar,
@@ -87,8 +88,7 @@ const VeterinaryClinics = () => {
               transition={{ delay: 0.2 }}
               className="text-neutral-600 max-w-2xl mx-auto text-base sm:text-lg md:text-xl font-medium tracking-tight leading-relaxed mt-8 mb-10 px-4"
             >
-              AI voice agents that handle appointments, prescription requests, and emergency calls
-              — ensuring every concerned pet owner gets immediate help, day or night.
+              AI voice agents that handle appointments, prescription requests, and emergency calls, ensuring every concerned pet owner gets immediate help, day or night.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -98,10 +98,12 @@ const VeterinaryClinics = () => {
               transition={{ delay: 0.3 }}
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
-              <button className="group h-14 sm:h-16 px-6 sm:px-10 rounded-2xl bg-gradient-to-r from-purple-600 to-pink-600 text-white font-black uppercase tracking-widest text-xs hover:scale-105 transition-all shadow-2xl shadow-purple-500/20 flex items-center gap-2">
+              <Link to="/contact">
+              <button className="group h-14 sm:h-16 px-6 sm:px-10 rounded-2xl bg-gradient-to-r from-purple-600 to-pink-600 text-white font-black uppercase tracking-widest text-xs hover:scale-105 transition-all shadow-2xl shadow-purple-500/20 flex items-center gap-2 cursor-pointer">
                 Start Your Journey
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
+              </Link>
               <button className="h-14 sm:h-16 px-6 sm:px-10 rounded-2xl bg-gray-100 border border-gray-200 text-gray-700 font-black uppercase tracking-widest text-xs hover:bg-gray-200 transition-all">
                 Watch Demo
               </button>
@@ -115,7 +117,7 @@ const VeterinaryClinics = () => {
               className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mt-16 sm:mt-20 w-full max-w-4xl"
             >
               {[
-                { value: "500+", label: "Veterinary Clinics" },
+                { value: "45%", label: "Time Saving" },
                 { value: "100%", label: "Call Answer Rate" },
                 { value: "40%", label: "Less Admin Time" },
                 { value: "24/7", label: "Emergency Support" }
@@ -435,7 +437,7 @@ const VeterinaryClinics = () => {
               { icon: Heart, title: "24/7 Emergency Support", description: "Never miss an after-hours emergency call", color: "from-purple-500 to-pink-500" },
               { icon: PawPrint, title: "Pet-Friendly Voice", description: "Calming, caring tone that comforts worried pet owners", color: "from-pink-500 to-purple-500" },
               { icon: Users, title: "Reduce Staff Burnout", description: "Free up vets and nurses for clinical care", color: "from-purple-500 to-pink-500" },
-              { icon: TrendingUp, title: "Proven Results", description: "30% more consultations, 40% less admin time", color: "from-pink-500 to-purple-500" }
+              { icon: TrendingUp, title: "Improved Results", description: "30% more consultations, 40% less admin time", color: "from-pink-500 to-purple-500" }
             ].map((reason, idx) => (
               <motion.div
                 key={idx}
@@ -473,24 +475,20 @@ const VeterinaryClinics = () => {
                 Ready to Provide Better Pet Care?
               </h2>
               <p className="text-lg md:text-xl text-neutral-600 mb-8 max-w-2xl mx-auto">
-                Join 500+ veterinary clinics improving pet care and reducing admin burden
+                Join a growing list of Veterinary clinics improving pet care and reducing admin burden
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button className="group bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
                   Book a Demo
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <button className="border-2 border-purple-200 text-purple-700 px-8 py-4 rounded-full font-bold text-lg hover:bg-purple-50 transition-all duration-300">
+                <Link to="/contact">
+                <button className="border-2 border-purple-200 text-purple-700 px-8 py-4 rounded-full font-bold text-lg hover:bg-purple-50 transition-all duration-300 cursor-pointer">
                   Contact Our Team
                 </button>
+                </Link>
               </div>
-              <p className="text-neutral-500 mt-8 text-sm flex flex-wrap justify-center gap-x-2 gap-y-1">
-                <span>RCVS compliant</span>
-                <span className="text-neutral-300">•</span>
-                <span>GDPR compliant</span>
-                <span className="text-neutral-300">•</span>
-                <span>14-day free trial</span>
-              </p>
+              
             </div>
           </motion.div>
         </div>

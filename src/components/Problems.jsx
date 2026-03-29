@@ -118,7 +118,7 @@ export default function Problems() {
 
           <p className="mt-6 max-w-3xl mx-auto text-sm sm:text-lg text-neutral-600 leading-relaxed">
             Every call is answered. Every opportunity is captured. Your AI agent handles
-            unlimited conversations at once — with the same professionalism every single time.
+            unlimited conversations at once  with the same professionalism every single time.
           </p>
         </motion.div>
 
