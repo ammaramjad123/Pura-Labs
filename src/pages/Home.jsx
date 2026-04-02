@@ -2,7 +2,6 @@ import Contact from "../components/Contact";
 import FAQ from "../components/FAQ";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
-import HowItWorks from "../components/HowItWorks";
 import Industries from "../components/Industries";
 import IndustriesGrid from "../components/IndustriesGrid";
 import Navbar from "../components/Navbar";
@@ -28,7 +27,7 @@ export default function Home() {
 
       <Industries />
       <IndustriesGrid />
-      <HowItWorks />
+     
 
       {/* PRICING */}
       <div id="pricing">

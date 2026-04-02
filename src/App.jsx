@@ -17,8 +17,8 @@ import Privacy from "./pages/Privacy";
 import Cookies from "./pages/Cookies";
 import PricingPage from "./pages/PricingPage"; // Add this import 
 import ContactUsPage from "./pages/ContactUsPage"; // Add this import
-import AboutUsPage from "./pages/AboutUsPage"; // Add this import
 import IndustriesPage from "./pages/IndustriesPage"; // Add this import
+import About from "./pages/About";
 
 function App() {
   return (
@@ -44,7 +44,7 @@ function App() {
           <Route path="/cookies" element={<Cookies />} />
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/contact" element={<ContactUsPage />} />
-          <Route path="/about" element={<AboutUsPage />} /> 
+          <Route path="/about" element={<About />} /> 
           <Route path="/industries" element={<IndustriesPage />} />
         
       </Routes>

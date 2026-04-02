@@ -126,8 +126,7 @@ export default function Industries() {
 
           {/* TEXT */}
           <p className="mt-4 text-sm sm:text-lg text-neutral-600 max-w-2xl leading-relaxed">
-            Pura AI doesn’t just answer calls, it understands intent,
-            responds intelligently, and adapts instantly to every situation.
+            Pura Labs AI Agents don’t just answer calls, they understand intent, respond intelligently, and adapt instantly to every situation.
           </p>
 
         </div>

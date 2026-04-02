@@ -4,8 +4,10 @@ export default function Problems() {
   const problems = [
     "Missed calls could mean missed revenue",
     "Escalating staff costs",
-    "Too busy answering calls instead of growing your business",
+    "Still answering repetitive calls when you could be focusing on growing your business?",
     "Customers waiting while staff are on another call",
+    "Missing potential opportunities out of hours?",
+    "Manual processes slowing everything down!"
   ];
 
   return (
@@ -112,12 +114,12 @@ export default function Problems() {
           transition={{ delay: 0.8 }}
           className="mt-24 text-center"
         >
-          <div className="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold shadow-lg">
+          <div className="inline-block px-6 sm:px-10 py-3 sm:py-4 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-extrabold shadow-lg">
             Pura AI Responds Instantly
           </div>
 
-          <p className="mt-6 max-w-3xl mx-auto text-sm sm:text-lg text-neutral-600 leading-relaxed">
-            Every call is answered. Every opportunity is captured. Your AI agent handles
+          <p className="mt-6 max-w-3xl sm:max-w-5xl  mx-auto text-base sm:text-xl text-neutral-900 leading-relaxed font-semibold">
+            Every call is answered. Every opportunity is captured. Pura Labs AI Agent handles
             unlimited conversations at once  with the same professionalism every single time.
           </p>
         </motion.div>

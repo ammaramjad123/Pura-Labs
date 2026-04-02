@@ -1,362 +1,210 @@
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useMemo, useState } from "react";
+import { ArrowRight, Briefcase, Wrench, Stethoscope, PawPrint, Smile, TrendingUp, Building2, Shield, UserPlus } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const industries = [
   {
     name: "Law Firms",
-    path: "/industries/law-firms",  // Changed
-    blurb: "Client intake, consultations, urgent matter routing",
-    x: 18,
-    y: 30,
-    size: "md",
+    path: "/industries/law-firms",
+    icon: Briefcase,
+    description: "Transform how your law firm handles calls with AI-powered voice agents designed for UK legal practices.",
+    fullContent: `Transform how your law firm handles calls with AI-powered voice agents designed for UK legal practices.
+
+Answer every enquiry instantly, capture key client details, and book consultations directly into your calendar all while maintaining professionalism and compliance with regulations like GDPR and SRA standards.
+
+Ensure no potential client is missed, improve response times, and deliver a consistent, high-quality experience across every interaction.
+
+Learn more about how we support legal practices`
   },
   {
     name: "Tradespeople",
-    path: "/industries/tradespeople",  // Changed
-    blurb: "Job enquiries, emergency jobs, bookings",
-    x: 78,
-    y: 22,
-    size: "md",
+    path: "/industries/tradespeople",
+    icon: Wrench,
+    description: "Never miss another job call, even when you're on-site.",
+    fullContent: `Never miss another job call, even when you're on-site.
+
+Pura Labs AI agents answer every enquiry instantly, capture job details, and book work directly into your diary while you stay focused on the job in front of you.
+
+No more missed calls, no more lost revenue just consistent, professional call handling that helps you win more work.
+
+See how we help tradespeople capture more jobs`
   },
   {
     name: "GP Practices",
-    path: "/industries/gp-practices",  // Changed
-    blurb: "Appointments, prescriptions, opening hours",
-    x: 42,
-    y: 45,
-    size: "lg",
+    path: "/industries/gp-practices",
+    icon: Stethoscope,
+    description: "Improve patient access and reduce pressure on your phone lines.",
+    fullContent: `Improve patient access and reduce pressure on your phone lines.
+
+Pura Labs AI Agents handle routine enquiries, book appointments, and capture patient requests instantly helping your practice manage high call volumes without overwhelming staff.
+
+Ensure every patient is responded to quickly, consistently, and professionally, while freeing up your team to focus on care.
+
+See how we support healthcare providers`
   },
   {
     name: "Veterinary Clinics",
-    path: "/industries/veterinary-clinics",  // Changed
-    blurb: "Pet appointments, medication, emergencies",
-    x: 72,
-    y: 55,
-    size: "md",
+    path: "/industries/veterinary-clinics",
+    icon: PawPrint,
+    description: "In veterinary clinics, calls often come at urgent or emotional moments.",
+    fullContent: `In veterinary clinics, calls often come at urgent or emotional moments and delays can impact both patient care and client trust.
+
+Pura Labs AI Agents ensure every call is answered promptly, helping pet owners book appointments, handle urgent enquiries, and get the information they need without long wait times.
+
+From routine check-ups to urgent concerns, every interaction is handled calmly and consistently keeping your phones covered while your team focuses on delivering care in the clinic.
+
+See how we support veterinary clinics`
   },
   {
     name: "Dental Practices",
-    path: "/industries/dental-practices",  // Changed
-    blurb: "Check-ups, urgent enquiries, treatment info",
-    x: 22,
-    y: 68,
-    size: "md",
+    path: "/industries/dental-practices",
+    icon: Smile,
+    description: "Missed calls in a dental clinic mean unfilled appointment slots.",
+    fullContent: `Missed calls in a dental clinic don't just mean lost enquiries they mean unfilled appointment slots and lost treatment revenue.
+
+Pura Labs AI Agents ensure every patient call is answered promptly, helping patients book appointments, request information, or follow up on treatments without delays or long hold times.
+
+From new patient enquiries to existing patients trying to reschedule or confirm appointments, every interaction is handled smoothly keeping your diary full and your front desk free to focus on patients in the clinic.
+
+See how we support dental clinics`
   },
   {
     name: "Finance",
-    path: "/industries/finance",  // Changed
-    blurb: "Consultations, fees, client follow-ups",
-    x: 58,
-    y: 75,
-    size: "md",
+    path: "/industries/finance",
+    icon: TrendingUp,
+    description: "In finance, every call carries weight whether it's a new enquiry or existing client.",
+    fullContent: `In finance, every call carries weight whether it's a new enquiry, a time-sensitive mortgage case, or an existing client needing advice.
+
+Pura Labs AI Agents ensure every call is handled promptly and professionally, capturing key details, triaging enquiries, and securing consultations without interrupting your day.
+
+Maintain a responsive, high-trust client experience while protecting revenue opportunities and reducing the risk of missed or delayed responses.
+
+See how we support financial firms`
   },
   {
     name: "Real Estate",
-    path: "/industries/real-estate",  // Changed
-    blurb: "Viewings, valuations, buyer enquiries",
-    x: 14,
-    y: 52,
-    size: "sm",
+    path: "/industries/real-estate",
+    icon: Building2,
+    description: "In property, speed wins deals and missed calls mean missed opportunities.",
+    fullContent: `In property, speed wins deals and missed calls mean missed viewings, valuations, and instructions.
+
+Pura Labs AI Agents ensure every enquiry is handled immediately, capturing buyer and seller details, booking viewings, and scheduling valuations without delay.
+
+Stay responsive in a competitive market, secure more instructions, and keep your team focused on closing deals instead of chasing calls.
+
+See how we support estate and letting agents`
   },
   {
     name: "Insurance",
-    path: "/industries/insurance",  // Changed
-    blurb: "Quotes, claims guidance, renewals",
-    x: 88,
-    y: 38,
-    size: "sm",
+    path: "/industries/insurance",
+    icon: Shield,
+    description: "When someone is shopping for insurance, they go with who responds first.",
+    fullContent: `When someone is shopping for insurance, they don't wait they call multiple brokers and go with the one who responds first.
+
+Pura Labs AI Agents ensure every inbound enquiry is handled instantly, capturing key details, understanding the type of cover required, and moving prospects efficiently toward a quote or callback.
+
+From new business enquiries to existing policyholders chasing updates, every call is handled with consistency and care — without pulling your team away from underwriting, renewals, or client servicing.
+
+See how we support insurance providers`
   },
   {
     name: "Recruitment",
-    path: "/industries/recruitment",  // Changed
-    blurb: "Screening, interviews, candidate enquiries",
-    x: 50,
-    y: 18,
-    size: "sm",
-  },
+    path: "/industries/recruitment",
+    icon: UserPlus,
+    description: "Screening candidates is time-consuming but speed makes the difference.",
+    fullContent: `Screening candidates is one of the most time-consuming parts of recruitment but it's also where speed makes the difference.
+
+Pura Labs AI Agents handle initial candidate calls automatically, asking the right questions, capturing key details, and qualifying applicants before they reach your consultants.
+
+This means your team only speaks to candidates who meet your criteria, saving hours of back-and-forth while keeping your pipeline moving.
+
+Stay responsive, reduce admin, and focus your time on interviews, client relationships, and closing placements.
+
+See how we support recruitment agencies`
+  }
 ];
 
-const sizeClasses = {
-  sm: "h-14 min-w-[100px] px-3 text-xs",
-  md: "h-16 min-w-[130px] px-4 text-sm",
-  lg: "h-20 min-w-[160px] px-5 text-sm",
-};
-
-function distance(a, b) {
-  return Math.hypot(a.x - b.x, a.y - b.y);
-}
-
-export default function IndustriesGrid() {
-  const [active, setActive] = useState(2);
-
-  const activeIndustry = industries[active];
-
-  const connections = useMemo(() => {
-    const source = industries[active];
-    return industries
-      .map((node, index) => ({
-        index,
-        from: source,
-        to: node,
-        d: distance(source, node),
-      }))
-      .filter((item) => item.index !== active)
-      .sort((a, b) => a.d - b.d)
-      .slice(0, 3);
-  }, [active]);
+const IndustriesGrid = () => {
+  const [selectedIndustry, setSelectedIndustry] = useState(industries[0]);
 
   return (
     <section className="bg-white px-4 py-24 sm:px-6 sm:py-28 lg:px-8">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-5xl">
         <div className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-neutral-950 sm:text-5xl">
-            Choose Your Industry
+          <h2 className="font-heading text-3xl font-bold tracking-tight text-neutral-950 sm:text-5xl">
+            How Pura Labs AI Agents Work
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-neutral-500 sm:text-lg">
-            Explore how the same AI system adapts across different business worlds.
+            Explore how our AI adapts across different business sectors
           </p>
         </div>
 
-        <div className="mt-16 hidden lg:grid lg:grid-cols-[1.15fr_0.85fr] lg:gap-8">
-
-         {/* ✅ UPDATED MAP (scrollable) */}
-<div className="relative h-[620px] overflow-x-auto overflow-y-hidden rounded-[32px] border border-neutral-200 bg-white">
-
-  {/* ✅ inner wide container */}
-  <div className="relative w-[1200px] h-full">
-
-    <div className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(to_right,#000_1px,transparent_1px),linear-gradient(to_bottom,#000_1px,transparent_1px)] [background-size:72px_72px]" />
-
-    <svg className="pointer-events-none absolute inset-0 h-full w-full">
-      {connections.map((line) => {
-        const from = line.from;
-        const to = line.to;
-        return (
-          <motion.line
-            key={`${active}-${line.index}`}
-            x1={`${from.x}%`}
-            y1={`${from.y}%`}
-            x2={`${to.x}%`}
-            y2={`${to.y}%`}
-            stroke="rgba(23,23,23,0.18)"
-            strokeWidth="1.5"
-            strokeDasharray="5 7"
-            initial={{ pathLength: 0, opacity: 0 }}
-            animate={{ pathLength: 1, opacity: 1 }}
-            transition={{ duration: 0.45 }}
-          />
-        );
-      })}
-    </svg>
-
-    <div className="absolute right-5 top-5 rounded-full border border-neutral-200 bg-white px-3 py-1.5 text-xs font-medium text-neutral-500">
-      Live industry map
-    </div>
-
-    {industries.map((item, index) => {
-      const isActive = active === index;
-      const isConnected = connections.some((c) => c.index === index);
-
-      return (
-        <motion.button
-          key={item.name}
-          type="button"
-          onMouseEnter={() => setActive(index)}
-          onFocus={() => setActive(index)}
-          onClick={() => {
-            window.location.href = item.path;
-          }}
-          animate={{
-            scale: isActive ? 1.08 : isConnected ? 1.02 : 1,
-            y: isActive ? -4 : 0,
-            opacity: isActive ? 1 : 0.88,
-          }}
-          transition={{ type: "spring", stiffness: 260, damping: 20 }}
-          className={`absolute ${isActive ? "z-20" : "z-10"} -translate-x-1/2 -translate-y-1/2 rounded-[24px] border text-left shadow-sm transition-colors duration-300 ${
-            isActive
-              ? "border-neutral-900 bg-neutral-900 text-white shadow-[0_18px_50px_rgba(0,0,0,0.18)]"
-              : "border-neutral-200 bg-white text-neutral-900 hover:border-neutral-300 hover:bg-neutral-50"
-          } ${sizeClasses[item.size]}`}
-          style={{ left: `${item.x}%`, top: `${item.y}%` }}
-        >
-          <div className="flex h-full items-center justify-between gap-4">
-            <div className="min-w-0">
-              <div className="truncate font-semibold">{item.name}</div>
-              <div
-                className={`mt-1 truncate text-[11px] leading-tight ${
-                  isActive ? "text-white/70" : "text-neutral-400"
+        {/* Industry Buttons - Scrollable on mobile, grid on desktop */}
+        <div className="mt-12 flex gap-3 overflow-x-auto pb-4 sm:flex-wrap sm:justify-center sm:overflow-visible [&::-webkit-scrollbar]:hidden">
+          {industries.map((industry) => {
+            const Icon = industry.icon;
+            const isActive = selectedIndustry.name === industry.name;
+            return (
+              <button
+                key={industry.name}
+                onClick={() => setSelectedIndustry(industry)}
+                className={`shrink-0 flex items-center gap-2 px-4 py-2 rounded-full font-semibold text-sm transition-all duration-300 whitespace-nowrap ${
+                  isActive
+                    ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg"
+                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                 }`}
               >
-                {item.blurb}
-              </div>
-            </div>
-
-            <motion.div
-              animate={{ x: isActive ? 2 : 0, opacity: isActive ? 1 : 0.55 }}
-              className={`shrink-0 text-lg ${isActive ? "text-white" : "text-neutral-400"}`}
-            >
-              ↗
-            </motion.div>
-          </div>
-        </motion.button>
-      );
-    })}
-
-    <div className="pointer-events-none absolute bottom-5 left-5 rounded-2xl border border-neutral-200 bg-white/90 px-4 py-3 backdrop-blur">
-      <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-neutral-400">
-        Active sector
-      </div>
-      <div className="mt-1 text-sm font-semibold text-neutral-900">
-        {activeIndustry.name}
-      </div>
-    </div>
-
-  </div>
-
-  {/* ✅ Scroll Indicator */}
-  <div className="pointer-events-none absolute bottom-5 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-
-    <motion.div
-      animate={{ x: [0, 8, 0] }}
-      transition={{ repeat: Infinity, duration: 1.4, ease: "easeInOut" }}
-      className="text-neutral-400 text-sm font-medium"
-    >
-      Scroll →
-    </motion.div>
-
-    <motion.div
-      animate={{ x: [0, 12, 0] }}
-      transition={{ repeat: Infinity, duration: 1.4, ease: "easeInOut", delay: 0.2 }}
-      className="h-2 w-12 rounded-full bg-neutral-300"
-    />
-
-  </div>
-
-</div>
-          {/* RIGHT PANEL (unchanged) */}
-          <div className="flex min-h-[620px] flex-col rounded-[32px] border border-neutral-200 bg-neutral-50 p-6">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeIndustry.name}
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -14 }}
-                transition={{ duration: 0.25 }}
-                className="flex h-full flex-col"
-              >
-                <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-neutral-400">
-                  Selected industry
-                </div>
-
-                <h3 className="mt-3 text-3xl font-bold tracking-tight text-neutral-950">
-                  {activeIndustry.name}
-                </h3>
-
-                <p className="mt-4 max-w-md text-base leading-8 text-neutral-600">
-                  {activeIndustry.blurb}
-                </p>
-
-                <div className="mt-8 space-y-3">
-                  <div className="rounded-2xl border border-neutral-200 bg-white p-4">
-                    <div className="text-xs font-semibold uppercase tracking-[0.16em] text-neutral-400">
-                      What the AI handles
-                    </div>
-                    <div className="mt-2 text-sm leading-7 text-neutral-700">
-                      Calls are answered immediately, details are captured accurately,
-                      and the enquiry is routed or booked without delay.
-                    </div>
-                  </div>
-
-                  <div className="rounded-2xl border border-neutral-200 bg-white p-4">
-                    <div className="text-xs font-semibold uppercase tracking-[0.16em] text-neutral-400">
-                      Why this matters
-                    </div>
-                    <div className="mt-2 text-sm leading-7 text-neutral-700">
-                      Fewer missed opportunities, less admin pressure, and a more
-                      consistent caller experience across busy periods and after hours.
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-auto pt-8">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      window.location.href = activeIndustry.path;
-                    }}
-                    className="inline-flex items-center gap-2 rounded-full bg-neutral-950 px-5 py-3 text-sm font-semibold text-white transition hover:translate-y-[-1px] cursor-pointer"
-                  >
-                    Explore {activeIndustry.name}
-                    <span>→</span>
-                  </button>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
+                <Icon className="w-4 h-4" />
+                {industry.name}
+              </button>
+            );
+          })}
         </div>
 
-        {/* MOBILE (unchanged) */}
-        <div className="mt-14 lg:hidden">
-          <div className="flex gap-4 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            {industries.map((item, index) => {
-              const isActive = active === index;
-              return (
-                <button
-                  key={item.name}
-                  type="button"
-                  onClick={() => setActive(index)}
-                  className={`shrink-0 rounded-full border px-4 py-2 text-sm font-medium transition ${
-                    isActive
-                      ? "border-neutral-900 bg-neutral-900 text-white"
-                      : "border-neutral-200 bg-white text-neutral-700"
-                  }`}
+        {/* Industry Details Card - Wider and more spacious */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={selectedIndustry.name}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="mt-8 rounded-3xl border border-gray-100 bg-white p-8 shadow-xl hover:shadow-2xl transition-all duration-300"
+          >
+            <div className="flex flex-col lg:flex-row lg:items-start gap-6">
+              {/* Larger Icon Box */}
+              <div className="w-20 h-20 rounded-2xl bg-gradient-to-r from-purple-100 to-blue-100 flex items-center justify-center flex-shrink-0 shadow-md">
+                <selectedIndustry.icon className="w-10 h-10 text-purple-600" />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-3xl font-bold text-neutral-950 mb-4">
+                  {selectedIndustry.name}
+                </h3>
+                <div className="text-gray-600 text-base leading-relaxed whitespace-pre-line">
+                  {selectedIndustry.fullContent}
+                </div>
+                <Link
+                  to={selectedIndustry.path}
+                  className="inline-flex items-center gap-2 mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold text-sm hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer"
                 >
-                  {item.name}
-                </button>
-              );
-            })}
-          </div>
-
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeIndustry.name}
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -14 }}
-              transition={{ duration: 0.22 }}
-              className="mt-6 rounded-[28px] border border-neutral-200 bg-white p-5"
-            >
-              <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-neutral-400">
-                Selected industry
+                  Learn More
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
 
-              <h3 className="mt-3 text-2xl font-bold text-neutral-950">
-                {activeIndustry.name}
-              </h3>
-
-              <p className="mt-3 text-sm leading-7 text-neutral-600">
-                {activeIndustry.blurb}
-              </p>
-
-              <div className="mt-5 rounded-2xl bg-neutral-50 p-4 text-sm leading-7 text-neutral-700">
-                Calls are answered immediately, details are captured, and the enquiry
-                is routed or booked without delay.
-              </div>
-
-              <button
-                type="button"
-                onClick={() => {
-                  window.location.href = activeIndustry.path;
-                }}
-                className="mt-5 inline-flex items-center gap-2 rounded-full bg-neutral-950 px-5 py-3 text-sm font-semibold text-white"
-              >
-                Explore {activeIndustry.name}
-                <span>→</span>
-              </button>
-            </motion.div>
-          </AnimatePresence>
+        {/* Bottom Note */}
+        <div className="mt-12 text-center">
+          <p className="text-sm text-gray-500">
+            Each industry solution is fully customised to your specific workflows and requirements
+          </p>
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default IndustriesGrid;
