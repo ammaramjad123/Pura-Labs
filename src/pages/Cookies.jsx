@@ -340,7 +340,7 @@ const Cookies = () => {
                 Questions about cookies? Contact us at:
               </p>
               <p className="text-gray-600 leading-relaxed mb-4">
-                Email: <a href="mailto:support@puralabs.ai" className="text-blue-600 hover:underline">support@puralabs.ai</a>
+                Email: <a href="mailto:sales@puralabs.ai" className="text-blue-600 hover:underline">sales@puralabs.ai</a>
               </p>
               <p className="text-gray-600 leading-relaxed">
                 For more on your UK GDPR rights, see our <a href="/privacy" className="text-blue-600 hover:underline">Privacy Policy</a>. Thank you for using Pura Labs.

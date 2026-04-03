@@ -90,25 +90,25 @@ export default function Industries() {
 
           {/* THINKING INDICATOR */}
           <div className="h-[44px] flex items-center justify-center">
-  {phase === "thinking" && (
-    <div className="flex gap-1">
-      <span className="w-2 h-2 bg-purple-400 rounded-full animate-bounce" />
-      <span className="w-2 h-2 bg-purple-400 rounded-full animate-bounce [animation-delay:0.15s]" />
-      <span className="w-2 h-2 bg-purple-400 rounded-full animate-bounce [animation-delay:0.3s]" />
-    </div>
-  )}
+            {phase === "thinking" && (
+              <div className="flex gap-1">
+                <span className="w-2 h-2 bg-purple-400 rounded-full animate-bounce" />
+                <span className="w-2 h-2 bg-purple-400 rounded-full animate-bounce [animation-delay:0.15s]" />
+                <span className="w-2 h-2 bg-purple-400 rounded-full animate-bounce [animation-delay:0.3s]" />
+              </div>
+            )}
 
-  {phase === "done" && (
-    <motion.div
-      key={calls[index].industry}
-      initial={{ scale: 0.8, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      className="px-6 py-3 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold shadow-md text-sm sm:text-base"
-    >
-      {calls[index].industry}
-    </motion.div>
-  )}
-</div>
+            {phase === "done" && (
+              <motion.div
+                key={calls[index].industry}
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                className="inline-block px-6 sm:px-10 py-3 sm:py-4 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-extrabold shadow-lg"
+              >
+                {calls[index].industry}
+              </motion.div>
+            )}
+          </div>
 
           {/* SIGNAL LINE */}
           <motion.div
@@ -124,8 +124,8 @@ export default function Industries() {
             className="h-[2px] bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-400 w-[220px] sm:w-[320px]"
           />
 
-          {/* TEXT */}
-          <p className="mt-4 text-sm sm:text-lg text-neutral-600 max-w-2xl leading-relaxed">
+          {/* TEXT - Updated as requested */}
+          <p className="mt-6 max-w-3xl sm:max-w-5xl mx-auto text-base sm:text-xl text-neutral-900 leading-relaxed font-semibold">
             Pura Labs AI Agents don’t just answer calls, they understand intent, respond intelligently, and adapt instantly to every situation.
           </p>
 

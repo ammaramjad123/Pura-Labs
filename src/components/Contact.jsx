@@ -1,5 +1,6 @@
 // Contact.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import emailjs from "@emailjs/browser";
 import { 
   Send, 
   Phone, 
@@ -64,6 +65,16 @@ const Contact = () => {
     { day: 'Sunday', hours: 'Emergency Support Only' }
   ];
 
+  useEffect(() => {
+    if (isSubmitted) {
+      const timer = setTimeout(() => {
+        setIsSubmitted(false);
+      }, 4000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [isSubmitted]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
@@ -90,6 +101,7 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
     const newErrors = validateForm();
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -97,16 +109,37 @@ const Contact = () => {
     }
     
     setIsSubmitting(true);
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
+
+    try {
+      await emailjs.send(
+        "service_nye0gid",          // your service id
+        "template_1m2cwpb",         // your template id
+        {
+          fullName: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          service: services.find(s => s.value === formData.service)?.label,
+          message: formData.message,
+          title: "Contact Form Submission"
+        },
+        "VDna6eslsdAD20e3O"          // your public key
+      );
+
+      setIsSubmitted(true);
+      setFormData({
+        fullName: "",
+        email: "",
+        phone: "",
+        message: "",
+        service: "general"
+      });
+
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      alert("Something went wrong. Please try again.");
+    }
+
     setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ fullName: '', email: '', phone: '', message: '', service: 'general' });
-    }, 3000);
   };
 
   const contactMethods = [
@@ -121,12 +154,11 @@ const Contact = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       title: 'Email Us',
-      details: ['sales@puralabs.ai',],
+      details: ['sales@puralabs.ai'],
       action: 'Send Email',
       link: 'mailto:sales@puralabs.ai',
       color: 'from-purple-500 to-pink-500'
     },
-   
   ];
 
   const faqs = [
@@ -135,22 +167,20 @@ const Contact = () => {
     { q: 'Do you offer support?', a: 'Yes, all plans include dedicated team support with 24/7 availability for critical issues.' }
   ];
 
-
   return (
     <div className="min-h-screen overflow-x-hidden bg-gradient-to-br from-slate-50 via-white to-purple-50 mt-22">
       {/* Hero Section with Animated Background */}
-     <div className="relative overflow-hidden">
-        
+      <div className="relative overflow-hidden">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-27 sm:pt-28 pb-20 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-100 border border-purple-200 mb-6">
-  <Sparkles className="w-4 h-4 text-purple-600" />
-  <span className="text-sm font-semibold text-purple-600">
-    Get in Touch
-  </span>
-</div>
+            <Sparkles className="w-4 h-4 text-purple-600" />
+            <span className="text-sm font-semibold text-purple-600">
+              Get in Touch
+            </span>
+          </div>
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold font-heading text-neutral-950 mb-6 animate-slide-up">
             Let's Build Something
-           <span className="block text-neutral-950">
+            <span className="block text-neutral-950">
               Extraordinary Together
             </span>
           </h1>
@@ -171,7 +201,7 @@ const Contact = () => {
           <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-2">
               {/* Left Side - Contact Form */}
-             <div className="p-6 sm:p-8 md:p-12">
+              <div className="p-6 sm:p-8 md:p-12">
                 <div className="mb-8">
                   <h2 className="text-3xl font-bold text-gray-800 mb-2">Send us a message</h2>
                   <p className="text-gray-600">Fill out the form below and we'll get back to you within 24 hours.</p>
@@ -276,45 +306,43 @@ const Contact = () => {
                       <label className="block text-sm font-semibold text-gray-700 mb-2">What are you interested in?</label>
                       <div className="relative">
                         <MessageSquare className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                       <div className="relative mb-6">
-  <div
-    onClick={() => setOpenDropdown(!openDropdown)}
-    className="relative w-full flex items-center px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 cursor-pointer hover:border-purple-400 hover:shadow-md transition"
-  >
-    <span className="text-sm font-medium text-gray-700 pr-6">
-      {services.find(s => s.value === formData.service)?.label}
-    </span>
-
-    <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
-      <svg
-        className="w-4 h-4 text-gray-400"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        viewBox="0 0 24 24"
-      >
-        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-      </svg>
-    </div>
-  </div>
-
-  {openDropdown && (
-    <div className="absolute left-0 top-full mt-2 w-full bg-white border border-gray-200 rounded-xl shadow-xl z-50 overflow-hidden">
-      {services.map((service, i) => (
-        <div
-          key={i}
-          onClick={() => {
-            setFormData(prev => ({ ...prev, service: service.value }));
-            setOpenDropdown(false);
-          }}
-          className="px-4 py-3 text-sm hover:bg-purple-50 cursor-pointer transition"
-        >
-          {service.label}
-        </div>
-      ))}
-    </div>
-  )}
-</div>
+                        <div className="relative mb-6">
+                          <div
+                            onClick={() => setOpenDropdown(!openDropdown)}
+                            className="relative w-full flex items-center px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 cursor-pointer hover:border-purple-400 hover:shadow-md transition"
+                          >
+                            <span className="text-sm font-medium text-gray-700 pr-6">
+                              {services.find(s => s.value === formData.service)?.label}
+                            </span>
+                            <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                              <svg
+                                className="w-4 h-4 text-gray-400"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                viewBox="0 0 24 24"
+                              >
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                              </svg>
+                            </div>
+                          </div>
+                          {openDropdown && (
+                            <div className="absolute left-0 top-full mt-2 w-full bg-white border border-gray-200 rounded-xl shadow-xl z-50 overflow-hidden">
+                              {services.map((service, i) => (
+                                <div
+                                  key={i}
+                                  onClick={() => {
+                                    setFormData(prev => ({ ...prev, service: service.value }));
+                                    setOpenDropdown(false);
+                                  }}
+                                  className="px-4 py-3 text-sm hover:bg-purple-50 cursor-pointer transition"
+                                >
+                                  {service.label}
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
                       </div>
                     </div>
 
@@ -352,19 +380,19 @@ const Contact = () => {
 
                     {/* Trust Badge */}
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-8 gap-x-2 pt-6 text-center">
-  {benefits.map((benefit, idx) => (
-    <div key={idx} className="flex flex-col items-center gap-2 text-xs text-gray-500">
-      {benefit.icon}
-      <span className="text-center leading-tight">{benefit.text}</span>
-    </div>
-  ))}
-</div>
+                      {benefits.map((benefit, idx) => (
+                        <div key={idx} className="flex flex-col items-center gap-2 text-xs text-gray-500">
+                          {benefit.icon}
+                          <span className="text-center leading-tight">{benefit.text}</span>
+                        </div>
+                      ))}
+                    </div>
                   </form>
                 )}
               </div>
 
               {/* Right Side - Contact Information */}
-             <div className="bg-gradient-to-br from-gray-900 to-purple-900 p-6 sm:p-8 md:p-12 text-white">
+              <div className="bg-gradient-to-br from-gray-900 to-purple-900 p-6 sm:p-8 md:p-12 text-white">
                 <div className="mb-8">
                   <h2 className="text-3xl font-bold mb-2">Connect With Us</h2>
                   <p className="text-purple-200">We're here to help and answer any questions you might have.</p>
@@ -396,18 +424,18 @@ const Contact = () => {
                 </div>
 
                 {/* Office Hours */}
-<div className="border-t border-purple-700 pt-6 mb-6">
-  <div className="flex items-center gap-2 mb-4">
-    <Clock className="w-5 h-5" />
-    <h3 className="font-semibold">Support Availability</h3>
-  </div>
-  <div className="space-y-2">
-    <div className="flex justify-between text-sm">
-      <span className="text-purple-200">Monday - Sunday</span>
-      <span className="font-medium text-green-300">24/7 Available</span>
-    </div>
-  </div>
-</div>
+                <div className="border-t border-purple-700 pt-6 mb-6">
+                  <div className="flex items-center gap-2 mb-4">
+                    <Clock className="w-5 h-5" />
+                    <h3 className="font-semibold">Support Availability</h3>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex justify-between text-sm">
+                      <span className="text-purple-200">Monday - Sunday</span>
+                      <span className="font-medium text-green-300">24/7 Available</span>
+                    </div>
+                  </div>
+                </div>
 
                 {/* Social Links */}
                 <div className="border-t border-purple-700 pt-6">

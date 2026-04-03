@@ -108,7 +108,7 @@ const Privacy = () => {
                 Pura Labs Ltd is a company registered in England and Wales with company number 17075255. You can contact us about this Privacy Policy at:
               </p>
               <p className="text-gray-600 leading-relaxed">
-                Email: <a href="mailto:support@puralabs.ai" className="text-blue-600 hover:underline">support@puralabs.ai</a>
+                Email: <a href="mailto:sales@puralabs.ai" className="text-blue-600 hover:underline">sales@puralabs.ai</a>
               </p>
             </motion.div>
 
@@ -304,7 +304,7 @@ const Privacy = () => {
                 <li>Not be subject to solely automated decisions with legal/significant effects</li>
               </ul>
               <p className="text-gray-600 leading-relaxed mb-2">
-                To exercise rights, email <a href="mailto:support@puralabs.ai" className="text-blue-600 hover:underline">support@puralabs.ai</a>. We usually respond within one month (extendable if complex). You also have the right to lodge a complaint with the Information Commissioner's Office (ICO): <a href="https://www.ico.org.uk" className="text-blue-600 hover:underline">www.ico.org.uk</a>.
+                To exercise rights, email <a href="mailto:sales@puralabs.ai" className="text-blue-600 hover:underline">sales@puralabs.ai</a>. We usually respond within one month (extendable if complex). You also have the right to lodge a complaint with the Information Commissioner's Office (ICO): <a href="https://www.ico.org.uk" className="text-blue-600 hover:underline">www.ico.org.uk</a>.
               </p>
             </motion.div>
 
@@ -360,7 +360,7 @@ const Privacy = () => {
             >
               <h2 className="text-2xl font-heading font-bold text-neutral-950 mb-4">12. Contact us</h2>
               <p className="text-gray-600 leading-relaxed">
-                Questions, comments, or rights requests: <a href="mailto:support@puralabs.ai" className="text-blue-600 hover:underline">support@puralabs.ai</a>
+                Questions, comments, or rights requests: <a href="mailto:sales@puralabs.ai" className="text-blue-600 hover:underline">sales@puralabs.ai</a>
               </p>
               <p className="text-gray-600 leading-relaxed mt-2">Thank you for trusting Pura Labs with your data.</p>
             </motion.div>
