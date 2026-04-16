@@ -53,161 +53,225 @@ const Tradespeople = () => {
   return (
     <div className="bg-white overflow-hidden">
       {/* Hero Section */}
-     {/* Hero Section */}
-<section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 pt-16">
-  {/* Minimal Geometric Pattern Background */}
-  <div className="absolute inset-0 opacity-30">
-    <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#3B82F6" strokeWidth="0.5"/>
-        </pattern>
-        <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
-          <circle cx="2" cy="2" r="1" fill="#3B82F6" opacity="0.3"/>
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#grid)" />
-      <rect width="100%" height="100%" fill="url(#dots)" />
-    </svg>
+    {/* Hero Section */}
+<section className="relative min-h-screen flex items-center bg-white overflow-hidden lg:pt-35 pt-35 pb-24">
+  {/* Background elements */}
+  <div className="absolute top-0 right-0 w-1/2 h-full bg-blue-50/30 -skew-x-12 translate-x-32 z-0 hidden lg:block" />
+  
+  {/* Floating icons background */}
+  <div className="absolute inset-0 pointer-events-none opacity-5">
+    <div className="absolute top-20 left-10">
+      <Hammer className="w-32 h-32 text-blue-600" />
+    </div>
   </div>
 
-  {/* Floating Elements */}
-  <div className="absolute inset-0 pointer-events-none">
-    <div className="absolute top-20 left-10 w-32 h-32 bg-blue-200/30 rounded-full blur-3xl animate-pulse" />
-    <div className="absolute bottom-20 right-10 w-40 h-40 bg-cyan-200/30 rounded-full blur-3xl animate-pulse delay-1000" />
-    <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-blue-300/20 rounded-full blur-2xl animate-pulse" />
-  </div>
+  <div className="container px-4 mx-auto relative z-10">
+    <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+      
+      {/* Content Section - LEFT SIDE */}
+      <div className="relative z-20 flex-1 text-center lg:text-left">
+        
+        <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-full px-4 py-2 mb-8">
+          <Hammer className="w-3 h-3 text-blue-600" />
+          <span className="text-[10px] font-black uppercase tracking-widest text-blue-700">
+            Trusted by UK Tradespeople
+          </span>
+        </div>
 
-  <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 md:py-32 relative z-10">
-    <div className="max-w-5xl mx-auto text-center">
-      {/* Badge */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="inline-flex items-center gap-2 bg-blue-50 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-blue-100 shadow-sm"
-      >
-        <Hammer className="w-4 h-4 text-blue-600" />
-        <span className="text-blue-700 text-sm font-semibold">Trusted by 5,000+ UK Tradespeople</span>
-      </motion.div>
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="text-5xl md:text-7xl font-heading font-black mb-8 tracking-tighter leading-[0.9] text-neutral-950"
+        >
+          Never Lose a Job To
+          <span className="text-blue-600 italic block">Missed Calls</span>
+        </motion.h1>
 
-      {/* Main Heading */}
-      <motion.h1 
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-heading font-black text-neutral-950 mb-6 leading-tight"
-      >
-        Never Lose a Job To  
-        <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">
-          Missed Call
-        </span>
-      </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="text-base md:text-lg max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed text-gray-600"
+        >
+          AI voice agents that answer every call, capture job details, and book work automatically so you can focus on what you do best.
+        </motion.p>
 
-      {/* Description */}
-      <motion.p 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-        className="text-lg sm:text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed"
-      >
-        AI voice agents that answer every call, capture job details, and book work automatically
-        so you can focus on what you do best.
-      </motion.p>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start"
+        >
+          <button className="w-full sm:w-auto h-16 px-10 bg-blue-600 text-white font-black rounded-2xl hover:bg-blue-700 transition-all shadow-xl text-xs uppercase tracking-widest gap-3 flex items-center justify-center">
+            <Play className="w-4 h-4" />
+            Watch Demo
+            <ArrowRight className="w-4 h-4" />
+          </button>
+        </motion.div>
+      </div>
 
-      {/* CTA Button - Only Watch Demo */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.6 }}
-        className="flex justify-center"
-      >
-        <button className="group bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-10 py-4 rounded-full font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg">
-          <Play className="w-5 h-5" />
-          Watch Demo
-          <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-        </button>
-      </motion.div>
+      {/* Animated Logo */}
+      <div className="relative flex-1">
+        <motion.div
+          initial={{ opacity: 0, x: 50, scale: 0.95 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ duration: 1, ease: "circOut" }}
+          className="relative z-10"
+        >
+          <div className="relative">
+            <div className="relative w-full aspect-square flex items-center justify-center">
+              
+              {/* Logo */}
+              <motion.img
+                src="/logo.png"
+                alt="Pura AI Logo"
+                className="w-48 h-48 md:w-64 md:h-64 object-contain relative z-10"
+                animate={{ scale: [1, 1.05, 1, 1.03, 1] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              />
 
-      {/* Stats */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.8 }}
-        className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-16 pt-8 border-t border-gray-100"
-      >
-        {[
-          { value: "5,000+", label: "Active Tradespeople", icon: Users },
-          { value: "100%", label: "Call Answer Rate", icon: Phone },
-          { value: "40%", label: "More Bookings", icon: TrendingUp },
-          { value: "24/7", label: "Always Available", icon: Clock }
-        ].map((stat, idx) => (
-          <div key={idx} className="text-center">
-            <stat.icon className="w-6 h-6 text-blue-600 mx-auto mb-2" />
-            <div className="text-2xl sm:text-3xl font-bold text-neutral-950">{stat.value}</div>
-            <div className="text-sm text-gray-500">{stat.label}</div>
+              {/* Ripple Rings */}
+              <motion.div className="absolute inset-0 flex items-center justify-center scale-75 md:scale-100">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute rounded-full border-2 border-blue-400/40"
+                    style={{
+                      width: 120 + i * 30,
+                      height: 120 + i * 30,
+                    }}
+                    animate={{
+                      scale: [1, 1.5 + i * 0.1, 1],
+                      opacity: [0.6, 0, 0.6],
+                    }}
+                    transition={{
+                      duration: 2.5,
+                      repeat: Infinity,
+                      delay: i * 0.2,
+                      ease: "easeOut",
+                    }}
+                  />
+                ))}
+              </motion.div>
+
+              {/* Glow */}
+              <motion.div
+                className="absolute inset-0 rounded-full bg-blue-500/20"
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.3, 0.6, 0.3],
+                }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+
+              {/* Sound Bars */}
+              <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-1">
+                {[...Array(12)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    className="w-1 bg-blue-500 rounded-full"
+                    animate={{
+                      height: [8, 20 + Math.random() * 30, 8],
+                    }}
+                    transition={{
+                      duration: 0.5 + Math.random() * 0.5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: i * 0.05,
+                    }}
+                    style={{ height: 8 }}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
-        ))}
-      </motion.div>
+        </motion.div>
+      </div>
     </div>
   </div>
 
   {/* Scroll Indicator */}
-  <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+  <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 animate-bounce">
     <div className="w-6 h-10 border-2 border-gray-300 rounded-full flex justify-center">
       <div className="w-1 h-2 bg-blue-600 rounded-full mt-2 animate-pulse" />
     </div>
   </div>
 </section>
 
-      {/* Problem Section */}
-      <section className="py-24 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-black text-neutral-950 mb-4">
-              The Hidden Cost of Missed Calls
-            </h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-              Every unanswered call is money walking out the door
-            </p>
-          </motion.div>
-
-          <motion.div 
-            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {[
-              { icon: DollarSign, title: "Lost Revenue", amount: "£40,000+", description: "Average annual loss from missed calls", color: "from-red-500 to-orange-500" },
-              { icon: Clock, title: "Wasted Time", amount: "40%", description: "of work hours spent on phone admin", color: "from-orange-500 to-yellow-500" },
-              { icon: Users, title: "Lost Customers", amount: "60%", description: "call the next tradesperson", color: "from-yellow-500 to-amber-500" },
-              { icon: AlertTriangle, title: "Emergency Loss", amount: "30%", description: "of emergency jobs lost", color: "from-amber-500 to-red-500" }
-            ].map((item, idx) => (
-              <motion.div
-                key={idx}
-                variants={fadeInUp}
-                whileHover={{ y: -8 }}
-                className="bg-white rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-300"
-              >
-                <div className={`bg-gradient-to-r ${item.color} w-14 h-14 md:w-16 md:h-16 rounded-xl flex items-center justify-center mb-4 md:mb-6`}>
-                  <item.icon className="w-7 h-7 md:w-8 md:h-8 text-white" />
-                </div>
-                <div className="text-3xl md:text-4xl font-black text-neutral-950 mb-2">{item.amount}</div>
-                <h3 className="text-lg md:text-xl font-bold text-neutral-950 mb-2">{item.title}</h3>
-                <p className="text-sm md:text-base text-gray-600">{item.description}</p>
-              </motion.div>
-            ))}
-          </motion.div>
+{/* Stats Bar */}
+<section className="py-12 bg-blue-50">
+  <div className="container mx-auto px-4">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      {[
+        { value: "0", label: "Missed Opportunities", icon: Users },
+        { value: "100%", label: "Call Answer Rate", icon: Phone },
+        { value: "40%", label: "More Bookings", icon: TrendingUp },
+        { value: "24/7", label: "Always Available", icon: Clock }
+      ].map((stat, idx) => (
+        <div key={idx} className="text-center">
+          <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-2">
+            <stat.icon className="w-5 h-5 text-blue-600" />
+          </div>
+          <div className="text-2xl md:text-3xl font-black text-neutral-950">{stat.value}</div>
+          <div className="text-sm text-gray-600">{stat.label}</div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+     {/* Problem Section */}
+<section className="py-24 bg-gray-50">
+  <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={fadeInUp}
+      className="text-center mb-16"
+    >
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-black text-neutral-950 mb-4">
+        The Hidden Cost of Missed Calls
+      </h2>
+      <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+        Every unanswered call is money walking out the door
+      </p>
+    </motion.div>
+
+    <motion.div 
+      className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
+      {[
+        { icon: DollarSign, title: "Lost Revenue", amount: "£40,000+", description: "Average annual loss from missed calls", color: "from-red-500 to-orange-500" },
+        { icon: Clock, title: "Wasted Time", amount: "40%", description: "of work hours spent on phone admin", color: "from-orange-500 to-yellow-500" },
+        { icon: Users, title: "Lost Customers", amount: "60%", description: "call the next tradesperson", color: "from-yellow-500 to-amber-500" },
+        { icon: AlertTriangle, title: "Emergency Loss", amount: "30%", description: "of emergency jobs lost", color: "from-amber-500 to-red-500" }
+      ].map((item, idx) => (
+        <motion.div
+          key={idx}
+          variants={fadeInUp}
+          whileHover={{ y: -8 }}
+          className="bg-white rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-300"
+        >
+          <div className={`bg-gradient-to-r ${item.color} w-14 h-14 md:w-16 md:h-16 rounded-xl flex items-center justify-center mb-4 md:mb-6`}>
+            <item.icon className="w-7 h-7 md:w-8 md:h-8 text-white" />
+          </div>
+          <h3 className="text-lg md:text-xl font-bold text-neutral-950 mb-2">{item.title}</h3>
+          <div className="text-3xl md:text-4xl font-black text-neutral-950 mb-2">{item.amount}</div>
+          <p className="text-sm md:text-base text-gray-600">{item.description}</p>
+        </motion.div>
+      ))}
+    </motion.div>
+  </div>
+</section>
 
       {/* How It Works Section */}
       <section className="py-24 bg-white">
@@ -481,7 +545,7 @@ const Tradespeople = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { value: "5,000+", label: "Active Tradespeople" },
+              { value: "0", label: "Missed Opportunities" },
               { value: "100%", label: "Call Answer Rate" },
               { value: "40%", label: "More Bookings" },
               { value: "24/7", label: "Support" }
@@ -517,9 +581,7 @@ const Tradespeople = () => {
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-black text-neutral-950 mb-6">
           Ready to Stop Missing Calls?
         </h2>
-        <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-          Join 5,000+ tradespeople who never miss another job opportunity
-        </p>
+        
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
          
          <Link to="/contact">

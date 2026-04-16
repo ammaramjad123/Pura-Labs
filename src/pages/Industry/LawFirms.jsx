@@ -61,107 +61,177 @@ const LawFirms = () => {
   return (
     <div className="bg-white overflow-hidden">
     
-{/* Hero Section with Parallax Effect */}
-<section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-18 sm:pt-12 bg-white">
-  <motion.div 
-    className="absolute inset-0 z-0"
-    initial={{ scale: 1.2 }}
-    animate={{ scale: 1 }}
-    transition={{ duration: 1.5 }}
-  >
-    {/* Light gradient for white background */}
-    <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-white to-purple-50 opacity-100" />
-    <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1589391886645-d51941baf7fb?ixlib=rb-4.0.3')] bg-cover bg-center bg-no-repeat opacity-5" />
-  </motion.div>
+{/* Hero Section */}
+<section className="relative min-h-screen flex items-center bg-white overflow-hidden lg:pt-35 pt-35 pb-24">
+  {/* Background elements */}
+  <div className="absolute top-0 right-0 w-1/2 h-full bg-purple-50/30 -skew-x-12 translate-x-32 z-0 hidden lg:block" />
+  
+  {/* Floating medical icons background */}
+  <div className="absolute inset-0 pointer-events-none opacity-5">
+    <div className="absolute top-20 left-10">
+      <Gavel className="w-32 h-32 text-purple-600" />
+    </div>
+  </div>
 
-  <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 md:py-32">
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      className="text-center max-w-7xl mx-auto"
-    >
-      <motion.div
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="inline-flex items-center gap-2 bg-purple-50 backdrop-blur-lg rounded-full px-3 sm:px-4 py-1.5 sm:py-2 mb-4 sm:mb-6 border border-purple-200 shadow-sm"
-      >
-        <Gavel className="w-3 h-3 sm:w-4 sm:h-4 text-purple-600" />
-        <span className="text-purple-700 text-xs sm:text-sm font-semibold">Trusted by Top UK Law Firms</span>
-      </motion.div>
+  <div className="container px-4 mx-auto relative z-10">
+    <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+      
+      {/* Content Section - LEFT SIDE */}
+      <div className="relative z-20 flex-1 text-center lg:text-left">
+        
+        <div className="inline-flex items-center gap-2 bg-purple-50 border border-purple-200 rounded-full px-4 py-2 mb-8">
+          <Gavel className="w-3 h-3 text-purple-600" />
+          <span className="text-[10px] font-black uppercase tracking-widest text-purple-700">
+            Trusted by Top UK Law Firms
+          </span>
+        </div>
 
-      <motion.h1 
-        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-neutral-950 mb-4 sm:mb-6 leading-tight font-heading"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3 }}
-      >
-        Transforming Client
-        <span className="font-heading block bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
-          Call Handling
-        </span>
-      </motion.h1>
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="text-5xl md:text-7xl font-heading font-black mb-8 tracking-tighter leading-[0.9] text-neutral-950"
+        >
+          Transform Your
+          <span className="text-purple-600 italic block">Law Firm</span>
+        </motion.h1>
 
-      <motion.p 
-        className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto px-4 sm:px-0 leading-relaxed font-medium"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5 }}
-      >
-        AI voice agents that answer every call, capture opportunities, and book consultations automatically ensuring your law firm never loses revenue to missed calls.
-      </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="text-base md:text-lg max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed text-gray-600"
+        >
+          AI voice agents that answer every call, capture opportunities, and book consultations automatically ensuring your law firm never loses revenue to missed calls.
+        </motion.p>
 
-      <motion.div 
-        className="flex justify-center px-4 sm:px-0"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.7 }}
-      >
-        <button className="group bg-purple-600 text-white px-8 sm:px-10 py-3.5 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 w-auto min-w-[170px] sm:min-w-[190px] shadow-lg">
-          Book a Demo
-          <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-        </button>
-      </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start"
+        >
+          <Link to="/contact">
+            <button className="w-full sm:w-auto h-16 px-10 bg-purple-600 text-white font-black rounded-2xl hover:bg-purple-700 transition-all shadow-xl text-xs uppercase tracking-widest gap-3 flex items-center justify-center">
+              Book a Demo
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </Link>
+        </motion.div>
+      </div>
 
-      <motion.div 
-        className="mt-12 sm:mt-16 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 md:gap-8 max-w-4xl mx-auto px-4 sm:px-0"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.9 }}
-      >
-        {[
-          { value: "100%", label: "Call Answer Rate", icon: Phone },
-          { value: "45%", label: "Time Savings", icon: Clock },
-          { value: "30%", label: "More Bookings", icon: Calendar },
-          { value: "24/7", label: "Always Available", icon: Shield }
-        ].map((stat, idx) => (
-          <motion.div 
-            key={idx}
-            className="text-center bg-purple-50 rounded-2xl p-3 sm:p-4 transition-all duration-300 hover:bg-purple-100"
-            whileHover={{ y: -5, scale: 1.02 }}
-          >
-            <div className="flex justify-center mb-2 sm:mb-3">
-              <stat.icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-purple-600" />
+      {/* Animated Logo */}
+      <div className="relative flex-1">
+        <motion.div
+          initial={{ opacity: 0, x: 50, scale: 0.95 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ duration: 1, ease: "circOut" }}
+          className="relative z-10"
+        >
+          <div className="relative">
+            <div className="relative w-full aspect-square flex items-center justify-center">
+              
+              {/* Logo */}
+              <motion.img
+                src="/logo.png"
+                alt="Pura AI Logo"
+                className="w-48 h-48 md:w-64 md:h-64 object-contain relative z-10"
+                animate={{ scale: [1, 1.05, 1, 1.03, 1] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              />
+
+              {/* Ripple Rings */}
+              <motion.div className="absolute inset-0 flex items-center justify-center scale-75 md:scale-100">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute rounded-full border-2 border-purple-400/40"
+                    style={{
+                      width: 120 + i * 30,
+                      height: 120 + i * 30,
+                    }}
+                    animate={{
+                      scale: [1, 1.5 + i * 0.1, 1],
+                      opacity: [0.6, 0, 0.6],
+                    }}
+                    transition={{
+                      duration: 2.5,
+                      repeat: Infinity,
+                      delay: i * 0.2,
+                      ease: "easeOut",
+                    }}
+                  />
+                ))}
+              </motion.div>
+
+              {/* Glow */}
+              <motion.div
+                className="absolute inset-0 rounded-full bg-purple-500/20"
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.3, 0.6, 0.3],
+                }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+
+              {/* Sound Bars */}
+              <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-1">
+                {[...Array(12)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    className="w-1 bg-purple-500 rounded-full"
+                    animate={{
+                      height: [8, 20 + Math.random() * 30, 8],
+                    }}
+                    transition={{
+                      duration: 0.5 + Math.random() * 0.5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: i * 0.05,
+                    }}
+                    style={{ height: 8 }}
+                  />
+                ))}
+              </div>
             </div>
-            <div className="text-xl sm:text-2xl md:text-3xl font-bold text-neutral-950">{stat.value}</div>
-            <div className="text-purple-600 text-xs sm:text-sm font-medium">{stat.label}</div>
-          </motion.div>
-        ))}
-      </motion.div>
-    </motion.div>
+          </div>
+        </motion.div>
+      </div>
+    </div>
   </div>
 
   {/* Scroll Indicator */}
-  <motion.div 
-    className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2"
-    animate={{ y: [0, 10, 0] }}
-    transition={{ repeat: Infinity, duration: 1.5 }}
-  >
-    <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-purple-300 rounded-full flex justify-center">
-      <div className="w-1 h-2 bg-purple-600 rounded-full mt-2 animate-bounce" />
+  <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 animate-bounce">
+    <div className="w-6 h-10 border-2 border-gray-300 rounded-full flex justify-center">
+      <div className="w-1 h-2 bg-purple-600 rounded-full mt-2 animate-pulse" />
     </div>
-  </motion.div>
+  </div>
+</section>
+
+{/* Stats Bar */}
+<section className="py-12 bg-purple-50">
+  <div className="container mx-auto px-4">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      {[
+        { value: "100%", label: "Call Answer Rate", icon: Phone },
+        { value: "45%", label: "Time Savings", icon: Clock },
+        { value: "30%", label: "More Bookings", icon: Calendar },
+        { value: "24/7", label: "Always Available", icon: Shield }
+      ].map((stat, idx) => (
+        <div key={idx} className="text-center">
+          <div className="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-2">
+            <stat.icon className="w-5 h-5 text-purple-600" />
+          </div>
+          <div className="text-2xl md:text-3xl font-black text-neutral-950">{stat.value}</div>
+          <div className="text-sm text-gray-600">{stat.label}</div>
+        </div>
+      ))}
+    </div>
+  </div>
 </section>
 
       {/* Problem Statement Section */}
@@ -211,7 +281,7 @@ const LawFirms = () => {
         {
           icon: MessageSquare,
           title: "Poor Experience",
-          description: "Clients expect instant responses, not voicemail or callbacks",
+          description: "Clients expect instant responses, not voicemail or busy tones",
           color: "from-green-500 to-emerald-500"
         }
       ].map((problem, idx) => (
@@ -368,56 +438,8 @@ const LawFirms = () => {
           </div>
         </div>
 
-        <div className="bg-gray-50 rounded-2xl p-6">
-          <div className="flex items-center gap-2 mb-4">
-            <BarChart3 className="w-5 h-5 text-purple-600" />
-            <span className="font-semibold text-gray-900">Real Results from UK Law Firms</span>
-          </div>
-          <div className="space-y-4">
-            <div>
-              <div className="flex justify-between text-sm mb-1">
-                <span>Call Answer Rate</span>
-                <span className="font-semibold text-purple-600">100%</span>
-              </div>
-              <div className="w-full bg-gray-200 rounded-full h-2">
-                <motion.div 
-                  className="bg-purple-600 h-2 rounded-full"
-                  initial={{ width: 0 }}
-                  whileInView={{ width: "100%" }}
-                  transition={{ duration: 1 }}
-                />
-              </div>
-            </div>
-            <div>
-              <div className="flex justify-between text-sm mb-1">
-                <span>Client Satisfaction</span>
-                <span className="font-semibold text-purple-600">94%</span>
-              </div>
-              <div className="w-full bg-gray-200 rounded-full h-2">
-                <motion.div 
-                  className="bg-purple-600 h-2 rounded-full"
-                  initial={{ width: 0 }}
-                  whileInView={{ width: "94%" }}
-                  transition={{ duration: 1, delay: 0.2 }}
-                />
-              </div>
-            </div>
-            <div>
-              <div className="flex justify-between text-sm mb-1">
-                <span>Consultation Conversion</span>
-                <span className="font-semibold text-purple-600">+30%</span>
-              </div>
-              <div className="w-full bg-gray-200 rounded-full h-2">
-                <motion.div 
-                  className="bg-purple-600 h-2 rounded-full"
-                  initial={{ width: 0 }}
-                  whileInView={{ width: "30%" }}
-                  transition={{ duration: 1, delay: 0.4 }}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+        
+       
       </motion.div>
     </div>
   </div>
@@ -629,7 +651,7 @@ const LawFirms = () => {
         {
           icon: TrendingUp,
           title: "Improved Results",
-          description: "30% more meetings booked, 45% time savings, 22% reduction in missed revenue",
+          description: "More meetings, More revenue, Time saved",
           color: "from-purple-500 to-pink-500"
         }
       ].map((reason, idx) => (
@@ -650,6 +672,39 @@ const LawFirms = () => {
   </div>
 </section>
 
+
+{/* CTA Section */}
+<section className="py-24 bg-purple-50/80">
+  <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="relative max-w-4xl mx-auto text-center"
+    >
+      <div className="bg-white rounded-3xl p-8 md:p-12">
+        <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-r from-purple-600 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+          <Scale className="w-8 h-8 md:w-10 md:h-10 text-white" />
+        </div>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-black text-neutral-950 mb-6">
+          Ready to Transform Your Law Firm?
+        </h2>
+        <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          Improve client outcomes and reduce admin workload in your law firm by joining Pura Labs today
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          
+             <Link to="/contact">
+          <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+            Contact Sales
+          </button>
+             </Link>
+        </div>
+        
+      </div>
+    </motion.div>
+  </div>
+</section>
      
     </div>
   );

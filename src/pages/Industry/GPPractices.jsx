@@ -72,13 +72,7 @@ const GPPractices = () => {
       <div className="relative z-20 flex-1 text-center lg:text-left">
         
         <div className="inline-flex items-center gap-2 bg-purple-50 border border-purple-200 rounded-full px-4 py-2 mb-8">
-          <div className="flex -space-x-2">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="w-6 h-6 rounded-full bg-purple-200 border-2 border-white flex items-center justify-center">
-                <span className="text-[10px] font-bold text-purple-700">{i}</span>
-              </div>
-            ))}
-          </div>
+         
           <span className="text-[10px] font-black uppercase tracking-widest text-purple-700">
             The Future of GP Practice Management
           </span>
@@ -110,37 +104,14 @@ const GPPractices = () => {
           className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start"
         >
           <button className="w-full sm:w-auto h-16 px-10 bg-purple-600 text-white font-black rounded-2xl hover:bg-purple-700 transition-all shadow-xl text-xs uppercase tracking-widest gap-3 flex items-center justify-center">
-            Start Your Journey
+            Listen to it in action
             <ArrowRight className="w-4 h-4" />
           </button>
 
-          <button className="w-full sm:w-auto h-16 px-10 bg-transparent border border-gray-200 text-gray-700 font-black rounded-2xl hover:bg-gray-50 transition-all text-xs uppercase tracking-widest gap-3 flex items-center justify-center group">
-            <Youtube className="w-5 h-5 text-red-500" />
-            Watch Demo
-          </button>
+         
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          className="mt-12 flex items-center justify-center lg:justify-start gap-8"
-        >
-          <div className="flex flex-col">
-            <span className="text-2xl font-black tracking-tight text-neutral-950">4.9/5</span>
-            <div className="flex gap-0.5">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-3 h-3 fill-purple-400 text-purple-400" />
-              ))}
-            </div>
-          </div>
-
-          <div className="w-px h-10 bg-gray-200" />
-
-          <p className="text-[10px] font-black uppercase tracking-widest text-gray-500 leading-tight">
-            Early Adopter <br /> Rating
-          </p>
-        </motion.div>
+       
       </div>
 
       {/* Animated Logo */}
@@ -246,7 +217,7 @@ const GPPractices = () => {
         { value: "24/7", label: "Always Available", icon: Clock },
         { value: "100%", label: "Call Answer Rate", icon: Phone },
         { value: "40%", label: "Less Admin Time", icon: Activity },
-        { value: "∞", label: "Calls Simultaneously", icon: Zap }
+        { value: "100", label: "Calls Simultaneously", icon: Zap }
       ].map((stat, idx) => (
         <div key={idx} className="text-center">
           <div className="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-2">
@@ -260,7 +231,7 @@ const GPPractices = () => {
   </div>
 </section>
 
-      {/* Problem Section */}
+     {/* Problem Section */}
 <section className="py-24 bg-white">
   <div className="container mx-auto px-4 sm:px-6 lg:px-8">
     <motion.div
@@ -281,9 +252,9 @@ const GPPractices = () => {
     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
       {[
         { icon: Phone, title: "High Call Volume", amount: "200+", description: "daily calls overwhelming reception staff", color: "from-purple-500 to-purple-600" },
-        { icon: Clock, title: "Long Wait Times", amount: "15min", description: "average patient wait on hold", color: "from-purple-500 to-purple-600" },
-        { icon: Users, title: "Staff Burnout", amount: "60%", description: "of receptionists report high stress levels", color: "from-purple-500 to-purple-600" },
-        { icon: AlertCircle, title: "After-Hours Loss", amount: "30%", description: "of calls go unanswered after 6pm", color: "from-purple-500 to-purple-600" }
+        { icon: Clock, title: "Average Hold Time", amount: "15min", description: "resulting in unhappy patients", color: "from-purple-500 to-purple-600" },
+        { icon: Users, title: "Staff Burnout", amount: "45%", description: "reception staff report high stress levels", color: "from-purple-500 to-purple-600" },
+        { icon: AlertCircle, title: "After-Hours Loss", amount: "100+", description: "no shows reducing GP availability", color: "from-purple-500 to-purple-600" }
       ].map((item, idx) => (
         <motion.div
           key={idx}
@@ -296,8 +267,8 @@ const GPPractices = () => {
           <div className={`bg-gradient-to-r ${item.color} w-14 h-14 md:w-16 md:h-16 rounded-xl flex items-center justify-center mb-4 md:mb-6`}>
             <item.icon className="w-7 h-7 md:w-8 md:h-8 text-white" />
           </div>
-          <div className="text-2xl md:text-3xl font-black text-neutral-950 mb-2">{item.amount}</div>
           <h3 className="text-lg md:text-xl font-bold text-neutral-950 mb-2">{item.title}</h3>
+          <div className="text-2xl md:text-3xl font-black text-neutral-950 mb-2">{item.amount}</div>
           <p className="text-sm md:text-base text-gray-600">{item.description}</p>
         </motion.div>
       ))}
@@ -327,7 +298,7 @@ const GPPractices = () => {
       {[
         { step: "01", title: "Call Comes In", icon: Phone, desc: "AI answers instantly with a professional, friendly voice", color: "from-purple-500 to-purple-600" },
         { step: "02", title: "Identifies Need", icon: MessageSquare, desc: "Determines if it's appointment, prescription, or enquiry", color: "from-purple-500 to-purple-600" },
-        { step: "03", title: "Books Appointment", icon: Calendar, desc: "Schedules into your system, prioritises urgent cases", color: "from-purple-500 to-purple-600" },
+        { step: "03", title: "Books Appointment", icon: Calendar, desc: "Schedules into your system, SMS confirmation to patient", color: "from-purple-500 to-purple-600" },
         { step: "04", title: "Patient Cared For", icon: Heart, desc: "Instant confirmation, follow-up if needed", color: "from-purple-500 to-purple-600" }
       ].map((item, idx) => (
         <motion.div
@@ -442,7 +413,7 @@ const GPPractices = () => {
       className="text-center mb-12"
     >
       <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-black text-neutral-950 mb-4">
-        Comprehensive Patient Support
+        How Pura Labs Supports Your Practice
       </h2>
       <div className="flex justify-center gap-4 mt-8">
         <button
